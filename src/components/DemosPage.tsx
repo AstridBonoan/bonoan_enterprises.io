@@ -29,6 +29,12 @@ const demos = [
     title: "Project 5",
     href: "https://astridbonoan.github.io/A-S_LawFirm.io/",
   },
+  {
+    image: "lens-light.png",
+    alt: "Lens & Light photography portfolio screenshot",
+    title: "Project 6",
+    href: "#",
+  },
 ] as const;
 
 const cardShell =
