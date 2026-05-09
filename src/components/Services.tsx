@@ -20,11 +20,11 @@ export function Services() {
   return (
     <section
       id="services"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900 transition-colors duration-200"
+      className="min-h-screen pt-28 pb-14 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950 transition-colors duration-200"
     >
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-3">
             Services
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300">
