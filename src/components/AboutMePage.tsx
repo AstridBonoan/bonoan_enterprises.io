@@ -3,9 +3,9 @@ interface AboutMePageProps {
 }
 
 export function AboutMePage({ onNavigate }: AboutMePageProps) {
-  // Drop your headshot at `public/about-me.jpg` (or .png) and the <img> below
-  // will pick it up automatically. Until then, the placeholder block is shown.
-  const photoSrc = `${import.meta.env.BASE_URL}about-me.jpg`;
+  // Headshot lives at `public/about-me.png`. If the file is ever missing
+  // (e.g. mid-deploy), the onError handler below swaps in a placeholder.
+  const photoSrc = `${import.meta.env.BASE_URL}about-me.png`;
 
   return (
     <section className="min-h-screen flex flex-col bg-white dark:bg-slate-950 transition-colors duration-200 px-4 sm:px-6 lg:px-8 pt-28 pb-14">
@@ -42,8 +42,7 @@ export function AboutMePage({ onNavigate }: AboutMePageProps) {
                   }}
                 />
                 <div className="hidden w-full h-full items-center justify-center text-slate-500 dark:text-slate-400 text-xs font-medium px-3 text-center">
-                  Add your photo at{' '}
-                  <code className="ml-1 font-mono text-[0.7rem]">public/about-me.jpg</code>
+                  Photo unavailable
                 </div>
               </div>
             </div>
