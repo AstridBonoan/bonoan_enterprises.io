@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local commit message scratch files used by the Cursor agent
+COMMIT_EDITMSG.tmp
