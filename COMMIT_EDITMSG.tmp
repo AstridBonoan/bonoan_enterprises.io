@@ -1,0 +1,7 @@
+Make About Me fit a single viewport
+
+Centers the section vertically with flex layout, tightens
+heading/card padding, narrows the photo column, caps the photo
+height with max-h relative to viewport, and trims the bio from
+three paragraphs to two so the CTAs land above the fold on
+typical laptop heights.
