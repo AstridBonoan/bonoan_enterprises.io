@@ -8,9 +8,9 @@ export function AboutMePage({ onNavigate }: AboutMePageProps) {
   const photoSrc = `${import.meta.env.BASE_URL}about-me.jpg`;
 
   return (
-    <section className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-200 px-4 sm:px-6 lg:px-8 pt-20 pb-8">
-      <div className="w-full max-w-5xl mx-auto">
-        <div className="text-center mb-5">
+    <section className="min-h-screen flex flex-col bg-white dark:bg-slate-950 transition-colors duration-200 px-4 sm:px-6 lg:px-8 pt-20 pb-8">
+      <div className="w-full max-w-5xl mx-auto flex-1 flex flex-col">
+        <div className="text-center">
           <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-1">
             About Me
           </h1>
@@ -19,7 +19,10 @@ export function AboutMePage({ onNavigate }: AboutMePageProps) {
           </p>
         </div>
 
-        <article className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
+        {/* Card wrapper takes the remaining vertical space and centers the card
+            between the title and the bottom of the viewport. */}
+        <div className="flex-1 flex items-center">
+          <article className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-[minmax(0,16rem)_1fr] gap-6 md:gap-8 p-6 sm:p-8">
             {/* Photo card -- stretches to match bio column height on md+ */}
             <div className="w-full max-w-[16rem] mx-auto md:max-w-none md:h-full">
@@ -86,7 +89,8 @@ export function AboutMePage({ onNavigate }: AboutMePageProps) {
               </div>
             </div>
           </div>
-        </article>
+          </article>
+        </div>
       </div>
     </section>
   );
