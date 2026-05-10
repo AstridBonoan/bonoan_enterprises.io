@@ -35,6 +35,24 @@ const demos = [
     title: "Project 6",
     href: "#",
   },
+  {
+    image: "as-fitness.png",
+    alt: "AS Fitness gym landing page screenshot",
+    title: "Project 7",
+    href: "https://astridbonoan.github.io/AS-Fitness/",
+  },
+  {
+    image: "as-contractor.png",
+    alt: "AS Contractor HVAC about page screenshot",
+    title: "Project 8",
+    href: "https://astridbonoan.github.io/AS-Contractor.io/about",
+  },
+  {
+    image: "as-bistro.png",
+    alt: "A.S. Bistro Urban Kitchen restaurant landing page screenshot",
+    title: "Project 9",
+    href: "https://astridbonoan.github.io/AS-BistroDemo.io",
+  },
 ] as const;
 
 const cardShell =
