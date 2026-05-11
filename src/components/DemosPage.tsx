@@ -102,6 +102,13 @@ const demos: readonly Demo[] = [
     href: 'https://astridbonoan.github.io/AS_Cafe.io/',
     category: 'websites',
   },
+  {
+    image: 'as-restaurant-dashboard.png',
+    alt: 'AS Restaurant Operations dashboard with sales trend, guest flow, and live order rail',
+    title: 'Project 13',
+    href: 'https://astridbonoan.github.io/AS_Restaurant_Dashboard.io/',
+    category: 'saas',
+  },
 ];
 
 const cardShell =
