@@ -59,6 +59,12 @@ const demos = [
     title: "Project 10",
     href: "https://astridbonoan.github.io/AS-RealEstate.io/",
   },
+  {
+    image: "as-studio.png",
+    alt: "AS Studio contemporary fashion ecommerce landing page screenshot",
+    title: "Project 11",
+    href: "https://astridbonoan.github.io/AS-ClothingEcommerce/",
+  },
 ] as const;
 
 const cardShell =
