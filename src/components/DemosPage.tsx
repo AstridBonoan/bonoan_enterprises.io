@@ -95,6 +95,13 @@ const demos: readonly Demo[] = [
     href: 'https://astridbonoan.github.io/AS-ClothingEcommerce/',
     category: 'websites',
   },
+  {
+    image: 'as-cafe.png',
+    alt: 'AS Café cozy coffee shop landing page screenshot',
+    title: 'Project 12',
+    href: 'https://astridbonoan.github.io/AS_Cafe.io/',
+    category: 'websites',
+  },
 ];
 
 const cardShell =
