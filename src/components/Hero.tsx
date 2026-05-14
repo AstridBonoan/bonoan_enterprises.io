@@ -11,11 +11,12 @@ export function Hero({ onNavigate }: HeroProps) {
     >
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6">
-          We Build Websites, Apps, and Brands That Help Businesses Grow
+          I Help Businesses Grow Through Websites, Apps, and Branding
         </h1>
         
         <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-          Custom web development, workflow solutions, and strategic design for businesses ready to scale.
+          Whether you need a polished website, a simple online tool for customers or your team, or
+          a refreshed look and message, I keep the process clear and the results easy to manage.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
