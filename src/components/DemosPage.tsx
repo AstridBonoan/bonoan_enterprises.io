@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 const FILTERS = [
   { id: 'all', label: 'All' },
@@ -132,8 +132,11 @@ const demos: readonly Demo[] = [
   },
 ];
 
+const MOBILE_PAGE = 6;
+const compactMq = '(max-width: 639px)';
+
 const cardShell =
-  'flex h-full flex-col overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900';
+  'flex h-full flex-col overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 max-sm:flex-row max-sm:items-stretch max-sm:rounded-lg';
 
 function countFor(filter: FilterId): number {
   if (filter === 'all') return demos.length;
@@ -142,10 +145,33 @@ function countFor(filter: FilterId): number {
 
 export function DemosPage() {
   const [activeFilter, setActiveFilter] = useState<FilterId>('all');
+  const [isCompact, setIsCompact] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia(compactMq).matches : false,
+  );
+  const [mobilePages, setMobilePages] = useState(1);
+
   const demoImageBase = `${import.meta.env.BASE_URL}demo-images/`;
 
   const visibleDemos =
     activeFilter === 'all' ? demos : demos.filter((d) => d.category === activeFilter);
+
+  useLayoutEffect(() => {
+    const mq = window.matchMedia(compactMq);
+    const sync = () => setIsCompact(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, []);
+
+  useLayoutEffect(() => {
+    setMobilePages(1);
+  }, [activeFilter, visibleDemos.length, isCompact]);
+
+  const mobileCap = mobilePages * MOBILE_PAGE;
+  const demosToRender = isCompact
+    ? visibleDemos.slice(0, Math.min(mobileCap, visibleDemos.length))
+    : visibleDemos;
+  const mobileRemaining = isCompact ? Math.max(0, visibleDemos.length - demosToRender.length) : 0;
 
   return (
     <section className="min-h-screen bg-white px-4 pb-20 pt-32 transition-colors duration-200 dark:bg-slate-950 sm:px-6 lg:px-8">
@@ -153,15 +179,19 @@ export function DemosPage() {
         <h1 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
           Demos
         </h1>
-        <p className="mb-6 text-lg text-slate-600 dark:text-slate-300">
+        <p className="mb-4 text-lg text-slate-600 dark:text-slate-300 sm:mb-6">
           Explore live examples of websites, SaaS experiences, and interactive product builds.
+        </p>
+        <p className="mb-6 text-sm text-slate-500 dark:text-slate-400 sm:hidden">
+          Use the filters to shorten the list. On small screens we show a few at a time so you
+          are not scrolling forever.
         </p>
 
         {/* Category filter bar */}
         <div
           role="group"
           aria-label="Filter demos by category"
-          className="mb-10 flex flex-wrap gap-2"
+          className="mb-6 flex flex-wrap gap-2 sm:mb-10"
         >
           {FILTERS.map((filter) => {
             const isActive = activeFilter === filter.id;
@@ -207,31 +237,48 @@ export function DemosPage() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {visibleDemos.map((demo) => (
+          <div className="grid grid-cols-1 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {demosToRender.map((demo) => (
               <article key={demo.href + demo.title} className={cardShell}>
-                <div className="flex aspect-[16/10] w-full shrink-0 items-center justify-center overflow-hidden bg-slate-100 p-2 dark:bg-slate-800 sm:p-2.5">
+                <div
+                  className={
+                    'flex shrink-0 items-center justify-center overflow-hidden bg-slate-100 dark:bg-slate-800 ' +
+                    'aspect-[16/10] w-full p-2 sm:p-2.5 max-sm:aspect-auto ' +
+                    'max-sm:h-[5.25rem] max-sm:w-[6.75rem] max-sm:min-w-[6.75rem] max-sm:max-w-[6.75rem] max-sm:rounded-l-lg max-sm:rounded-r-none max-sm:p-1.5'
+                  }
+                >
                   <img
                     src={`${demoImageBase}${demo.image}`}
                     alt={demo.alt}
-                    className="max-h-full max-w-full object-contain"
+                    className="max-h-full max-w-full object-contain max-sm:object-cover max-sm:object-top"
                   />
                 </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <h2 className="mb-3 text-xl font-semibold text-slate-900 dark:text-white">
+                <div className="flex min-w-0 flex-1 flex-col justify-center p-3 sm:p-5 max-sm:py-3 max-sm:pl-0 max-sm:pr-3">
+                  <h2 className="mb-2 truncate text-base font-semibold text-slate-900 dark:text-white sm:mb-3 sm:text-xl sm:whitespace-normal">
                     {demo.title}
                   </h2>
                   <a
                     href={demo.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-auto inline-flex w-fit shrink-0 items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
+                    className="mt-auto inline-flex w-fit max-w-full shrink-0 items-center justify-center truncate rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 sm:px-4 sm:py-2 sm:text-sm"
                   >
                     Open Demo
                   </a>
                 </div>
               </article>
             ))}
+          </div>
+        )}
+        {mobileRemaining > 0 && (
+          <div className="mt-6 flex justify-center sm:hidden">
+            <button
+              type="button"
+              onClick={() => setMobilePages((p) => p + 1)}
+              className="rounded-full border border-slate-300 bg-slate-50 px-5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+            >
+              Show more ({mobileRemaining} left)
+            </button>
           </div>
         )}
       </div>
