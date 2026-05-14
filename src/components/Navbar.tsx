@@ -67,19 +67,16 @@ export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarPr
               Pricing
             </button>
             <button
+              onClick={() => onNavigate('/demos')}
+              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+            >
+              Demos
+            </button>
+            <button
               onClick={() => onNavigate('/contact')}
               className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               Contact
-            </button>
-            <button
-              onClick={() => {
-                onNavigate('/demos');
-                setIsMenuOpen(false);
-              }}
-              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              Demos
             </button>
           </div>
 
@@ -215,21 +212,21 @@ export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarPr
             </button>
             <button
               onClick={() => {
+                onNavigate('/demos');
+                setIsMenuOpen(false);
+              }}
+              className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-b border-slate-100 dark:border-slate-800"
+            >
+              Demos
+            </button>
+            <button
+              onClick={() => {
                 onNavigate('/contact');
                 setIsMenuOpen(false);
               }}
               className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-b border-slate-100 dark:border-slate-800"
             >
               Contact
-            </button>
-            <button
-              onClick={() => {
-                onNavigate('/demos');
-                setIsMenuOpen(false);
-              }}
-              className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-t border-slate-100 dark:border-slate-800"
-            >
-              Demos
             </button>
           </nav>
         </div>
