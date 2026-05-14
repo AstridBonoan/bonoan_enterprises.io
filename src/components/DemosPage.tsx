@@ -187,11 +187,11 @@ export function DemosPage() {
           at a time so the page stays scannable.
         </p>
 
-        {/* Category filter bar */}
+        {/* Category filter bar — single row on narrow screens (grid), relaxed flex from sm up */}
         <div
           role="group"
           aria-label="Filter demos by category"
-          className="mb-6 flex flex-wrap gap-2 sm:mb-10"
+          className="mb-6 grid w-full grid-cols-3 gap-2 sm:mb-10 sm:flex sm:flex-wrap sm:gap-2"
         >
           {FILTERS.map((filter) => {
             const isActive = activeFilter === filter.id;
@@ -203,16 +203,16 @@ export function DemosPage() {
                 onClick={() => setActiveFilter(filter.id)}
                 aria-pressed={isActive}
                 className={
-                  'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors ' +
+                  'flex w-full min-w-0 flex-col items-center justify-center gap-1 rounded-full px-2 py-2.5 text-center text-xs font-semibold leading-tight transition-colors sm:inline-flex sm:w-auto sm:flex-row sm:items-center sm:gap-2 sm:px-4 sm:py-2 sm:text-sm sm:leading-normal ' +
                   (isActive
                     ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700')
                 }
               >
-                <span>{filter.label}</span>
+                <span className="break-words">{filter.label}</span>
                 <span
                   className={
-                    'rounded-full px-2 py-0.5 text-xs font-medium ' +
+                    'shrink-0 rounded-full px-1.5 py-0.5 text-[0.65rem] font-medium sm:px-2 sm:text-xs ' +
                     (isActive
                       ? 'bg-white/20 text-white dark:bg-slate-900/15 dark:text-slate-900'
                       : 'bg-white text-slate-600 dark:bg-slate-900 dark:text-slate-400')
