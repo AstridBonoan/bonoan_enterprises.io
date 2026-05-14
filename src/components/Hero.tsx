@@ -11,7 +11,7 @@ export function Hero({ onNavigate }: HeroProps) {
     >
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6">
-          I Help Businesses Grow Through Websites, Apps, and Branding
+          I help businesses build a strong online presence through websites, tools, and branding
         </h1>
         
         <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
