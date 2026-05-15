@@ -1,4 +1,6 @@
 const STRIPE_DEPOSIT_PAYMENT_LINK = 'https://buy.stripe.com/test_placeholder';
+/** Set to true when Stripe Payment Links are live. */
+const SHOW_STRIPE_DEPOSIT_BUTTON = false;
 
 export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) {
   const websiteCreation = [
@@ -108,21 +110,27 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
           </div>
         ))}
       </div>
-      <div className="mt-6 flex flex-col gap-2">
+      <div
+        className={
+          SHOW_STRIPE_DEPOSIT_BUTTON ? 'mt-6 flex flex-col gap-2' : 'mt-6'
+        }
+      >
         <button
           onClick={() => onSelect?.(`${category}: ${tier.name}`)}
           className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors duration-200"
         >
           Keep In Touch
         </button>
-        <a
-          href={STRIPE_DEPOSIT_PAYMENT_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex w-full items-center justify-center rounded-lg border-2 border-slate-900 bg-transparent px-3 py-2 text-center text-xs font-semibold leading-snug text-slate-900 transition-colors duration-200 hover:bg-slate-50 dark:border-white dark:text-white dark:hover:bg-slate-900/50 sm:text-sm sm:leading-tight"
-        >
-          Start Project (Pay 50% Deposit)
-        </a>
+        {SHOW_STRIPE_DEPOSIT_BUTTON && (
+          <a
+            href={STRIPE_DEPOSIT_PAYMENT_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center rounded-lg border-2 border-slate-900 bg-transparent px-3 py-2 text-center text-xs font-semibold leading-snug text-slate-900 transition-colors duration-200 hover:bg-slate-50 dark:border-white dark:text-white dark:hover:bg-slate-900/50 sm:text-sm sm:leading-tight"
+          >
+            Start Project (Pay 50% Deposit)
+          </a>
+        )}
       </div>
     </div>
   );
