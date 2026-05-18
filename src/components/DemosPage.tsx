@@ -199,6 +199,16 @@ const demos: readonly Demo[] = [
     industry: 'barbershop',
   },
   {
+    image: 'as-residential.png',
+    alt: 'AS Residential custom homes and renovations landing page with quote CTA and project stats',
+    title: 'Built to Last Starts at Home',
+    description:
+      'Residential construction and renovation positioning—licensed credibility, project proof, and a clear path to request a quote.',
+    href: 'https://astridbonoan.github.io/AS-Residential.io/',
+    category: 'websites',
+    industry: 'construction',
+  },
+  {
     image: 'as-restaurant-dashboard.png',
     alt: 'AS Restaurant Operations dashboard with sales trend, guest flow, and live order rail',
     title: 'The Pulse of a Busy Shift',
