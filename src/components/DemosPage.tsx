@@ -1,13 +1,12 @@
 import { useLayoutEffect, useMemo, useState } from 'react';
 
 const FILTERS = [
-  { id: 'all', label: 'All' },
   { id: 'websites', label: 'Websites' },
   { id: 'saas', label: 'SaaS Tools' },
 ] as const;
 
 type FilterId = (typeof FILTERS)[number]['id'];
-type DemoCategory = Exclude<FilterId, 'all'>;
+type DemoCategory = FilterId;
 
 const WEBSITE_INDUSTRIES = [
   { id: 'all', label: 'All industries' },
@@ -31,22 +30,6 @@ const SAAS_INDUSTRIES = [
   { id: 'retail', label: 'Retail & ecommerce' },
 ] as const;
 
-const ALL_INDUSTRIES = [
-  { id: 'all', label: 'All industries' },
-  { id: 'restaurant', label: 'Restaurants & dining' },
-  { id: 'cafe', label: 'Cafés & coffee' },
-  { id: 'auto', label: 'Auto shop' },
-  { id: 'construction', label: 'Construction & trades' },
-  { id: 'real-estate', label: 'Real estate' },
-  { id: 'legal', label: 'Legal & professional' },
-  { id: 'photography', label: 'Photography & creative' },
-  { id: 'fitness', label: 'Fitness & wellness' },
-  { id: 'fashion-retail', label: 'Fashion & retail' },
-  { id: 'barbershop', label: 'Barbershop & grooming' },
-  { id: 'field-services', label: 'Field services & contractors' },
-  { id: 'retail', label: 'Retail & ecommerce' },
-] as const;
-
 type WebsiteIndustryId = (typeof WEBSITE_INDUSTRIES)[number]['id'];
 type SaasIndustryId = (typeof SAAS_INDUSTRIES)[number]['id'];
 type IndustryId = WebsiteIndustryId | SaasIndustryId;
@@ -62,9 +45,7 @@ interface Demo {
 }
 
 function industryOptionsFor(filter: FilterId) {
-  if (filter === 'websites') return WEBSITE_INDUSTRIES;
-  if (filter === 'saas') return SAAS_INDUSTRIES;
-  return ALL_INDUSTRIES;
+  return filter === 'websites' ? WEBSITE_INDUSTRIES : SAAS_INDUSTRIES;
 }
 
 const demos: readonly Demo[] = [
@@ -267,12 +248,11 @@ const cardShell =
   'flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900';
 
 function countFor(filter: FilterId): number {
-  if (filter === 'all') return demos.length;
   return demos.filter((d) => d.category === filter).length;
 }
 
 export function DemosPage() {
-  const [activeFilter, setActiveFilter] = useState<FilterId>('all');
+  const [activeFilter, setActiveFilter] = useState<FilterId>('websites');
   const [industryFilter, setIndustryFilter] = useState<IndustryId>('all');
   const [isCompact, setIsCompact] = useState(() =>
     typeof window !== 'undefined' ? window.matchMedia(compactMq).matches : false,
@@ -281,8 +261,7 @@ export function DemosPage() {
 
   const demoImageBase = `${import.meta.env.BASE_URL}demo-images/`;
 
-  const categoryDemos =
-    activeFilter === 'all' ? demos : demos.filter((d) => d.category === activeFilter);
+  const categoryDemos = demos.filter((d) => d.category === activeFilter);
 
   const industryOptions = useMemo(() => {
     const base = industryOptionsFor(activeFilter);
@@ -331,18 +310,18 @@ export function DemosPage() {
           Demos
         </h1>
         <p className="mb-4 text-lg text-slate-600 dark:text-slate-300 sm:mb-6">
-          Explore live examples of websites, SaaS experiences, and interactive product builds.
+          Browse website and SaaS demos by category—pick a tab below, then narrow by industry if
+          you like.
         </p>
         <p className="mb-6 text-sm text-slate-500 dark:text-slate-400 sm:hidden">
-          Use the category and industry filters to shorten the list. On phones, demos load in a
-          two-column grid a few at a time so the page stays scannable.
+          On phones, demos load in a two-column grid a few at a time so the page stays scannable.
         </p>
 
         {/* Category filter bar — single row on narrow screens (grid), relaxed flex from sm up */}
         <div
           role="group"
           aria-label="Filter demos by category"
-          className="mb-4 grid w-full grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-2"
+          className="mb-4 grid w-full grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-2"
         >
           {FILTERS.map((filter) => {
             const isActive = activeFilter === filter.id;
@@ -381,11 +360,7 @@ export function DemosPage() {
             htmlFor="demo-industry-filter"
             className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
           >
-            {activeFilter === 'saas'
-              ? 'Filter by business type'
-              : activeFilter === 'websites'
-                ? 'Filter by industry'
-                : 'Filter by industry or business type'}
+            {activeFilter === 'saas' ? 'Filter by business type' : 'Filter by industry'}
           </label>
           <select
             id="demo-industry-filter"
