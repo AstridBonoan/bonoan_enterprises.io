@@ -209,6 +209,16 @@ const demos: readonly Demo[] = [
     industry: 'construction',
   },
   {
+    image: 'as-luxury-homes.png',
+    alt: 'AS Luxury Homes bespoke estate construction hero with dusk home photography and consultation CTA',
+    title: 'Where Vision Becomes Extraordinary Living',
+    description:
+      'Luxury residential construction—editorial hero, portfolio energy, and a private consultation path for high-end custom estates.',
+    href: 'https://astridbonoan.github.io/AS_Luxery_Homes.io/',
+    category: 'websites',
+    industry: 'construction',
+  },
+  {
     image: 'as-restaurant-dashboard.png',
     alt: 'AS Restaurant Operations dashboard with sales trend, guest flow, and live order rail',
     title: 'The Pulse of a Busy Shift',
