@@ -8,6 +8,7 @@ import { ContactForm } from './components/ContactForm'
 import { Footer } from './components/Footer'
 import { DemosPage } from './components/DemosPage'
 import { AboutMePage } from './components/AboutMePage'
+import { MyWorkPage } from './components/MyWorkPage'
 import './index.css'
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         {pathname === '/pricing' && <Pricing onSelect={handlePricingSelect} />}
         {pathname === '/contact' && <ContactForm subject={contactSubject} />}
         {pathname === '/demos' && <DemosPage />}
+        {pathname === '/my-work' && <MyWorkPage />}
         {pathname === '/about' && <AboutMePage onNavigate={navigateTo} />}
       </main>
       <Footer onNavigate={navigateTo} />
