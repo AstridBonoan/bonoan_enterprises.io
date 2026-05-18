@@ -200,6 +200,16 @@ const demos: readonly Demo[] = [
     industry: 'construction',
   },
   {
+    image: 'as-renovations.png',
+    alt: 'AS Renovations kitchen and bathroom remodel landing page with orange CTA and hero home image',
+    title: 'Dream Kitchen or Bath—Done in Weeks',
+    description:
+      'Fast remodel positioning with urgency, trust badges, and quote-first flow—built for contractors who win on speed and clarity, not surprises.',
+    href: 'https://astridbonoan.github.io/AS-Renovations.io/',
+    category: 'websites',
+    industry: 'construction',
+  },
+  {
     image: 'as-restaurant-dashboard.png',
     alt: 'AS Restaurant Operations dashboard with sales trend, guest flow, and live order rail',
     title: 'The Pulse of a Busy Shift',
