@@ -210,6 +210,16 @@ const demos: readonly Demo[] = [
     industry: 'construction',
   },
   {
+    image: 'as-local-contractor.png',
+    alt: 'AS Local Contractor home services landing page with green hero, call CTA, and trust badges',
+    title: 'Reliable Home Services You Can Trust',
+    description:
+      'Local contractor landing with same-week scheduling energy, free-estimate flow, and licensed-and-insured proof—built to turn searches into calls.',
+    href: 'https://astridbonoan.github.io/AS-Local-Contractor.io/',
+    category: 'websites',
+    industry: 'construction',
+  },
+  {
     image: 'as-restaurant-dashboard.png',
     alt: 'AS Restaurant Operations dashboard with sales trend, guest flow, and live order rail',
     title: 'The Pulse of a Busy Shift',
