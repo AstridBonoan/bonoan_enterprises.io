@@ -220,6 +220,16 @@ const demos: readonly Demo[] = [
     industry: 'construction',
   },
   {
+    image: 'as-personal-trainer.png',
+    alt: 'AS Personal Trainer landing page with dark hero, gradient headline, and book free call CTA',
+    title: 'Transform Your Limits',
+    description:
+      'Elite 1:1 coaching positioning—high-contrast hero, programs and booking flow, built for trainers who sell results and accountability, not memberships alone.',
+    href: 'https://astridbonoan.github.io/AS_Personal_Trainer.io/',
+    category: 'websites',
+    industry: 'fitness',
+  },
+  {
     image: 'as-restaurant-dashboard.png',
     alt: 'AS Restaurant Operations dashboard with sales trend, guest flow, and live order rail',
     title: 'The Pulse of a Busy Shift',
