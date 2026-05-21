@@ -7,12 +7,12 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
     {
       name: "Basic",
       price: "$500",
-      features: ["1-3 Pages", "Simple Design", "Mobile Friendly", "Simple Contact Form"]
+      features: ["1-3 Pages", "Custom UI", "Mobile Friendly", "Simple Contact Form"]
     },
     {
       name: "Standard",
       price: "$800",
-      features: ["3-5 Pages", "Better UI", "Application", "Service", "Contact Forms"]
+      features: ["3-5 Pages", "Custom UI", "Application", "Service", "Contact Form"]
     },
     {
       name: "Advanced",
