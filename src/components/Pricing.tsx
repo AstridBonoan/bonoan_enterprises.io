@@ -16,6 +16,7 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
         "3-5 Pages",
         "Custom UI",
         "Mobile Friendly",
+        "Contact Form",
         "Lead & application forms",
       ]
     },
@@ -26,6 +27,7 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
         "6-8 Pages",
         "Custom UI",
         "Mobile Friendly",
+        "Contact Form",
         "Advanced forms (quotes, intake, service requests)",
         "Light Integrations",
         "Email Automation",
