@@ -7,12 +7,17 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
     {
       name: "Basic",
       price: "$500",
-      features: ["1-3 Pages", "Custom UI", "Mobile Friendly", "Simple Contact Form"]
+      features: ["1-3 Pages", "Custom UI", "Mobile Friendly", "Contact Form"]
     },
     {
       name: "Standard",
       price: "$800",
-      features: ["3-5 Pages", "Custom UI", "Application", "Service", "Contact Form"]
+      features: [
+        "3-5 Pages",
+        "Custom UI",
+        "Mobile Friendly",
+        "Lead & application forms",
+      ]
     },
     {
       name: "Advanced",
@@ -20,13 +25,11 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
       features: [
         "6-8 Pages",
         "Custom UI",
-        "Advanced Forms",
-        "Quote Request Form",
-        "Intake Form",
-        "Service Request Form",
+        "Mobile Friendly",
+        "Advanced forms (quotes, intake, service requests)",
         "Light Integrations",
         "Email Automation",
-        "Basic Stripe Checkout"
+        "Basic Stripe Checkout",
       ]
     }
   ];
