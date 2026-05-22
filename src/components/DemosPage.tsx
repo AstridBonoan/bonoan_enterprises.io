@@ -230,6 +230,16 @@ const demos: readonly Demo[] = [
     industry: 'fitness',
   },
   {
+    image: 'ember-bowl-co.png',
+    alt: 'Ember Bowl Co. casual restaurant ordering page with pickup and delivery, promos, and mobile-first checkout',
+    title: 'Bowls & Wraps, Ready When You Are',
+    description:
+      'Fast-casual order experience—pickup or delivery, promos up front, and checkout built for phones so hungry customers order in under a minute.',
+    href: 'https://astridbonoan.github.io/AS_Casual_Restaurant.io/',
+    category: 'websites',
+    industry: 'restaurant',
+  },
+  {
     image: 'as-restaurant-dashboard.png',
     alt: 'AS Restaurant Operations dashboard with sales trend, guest flow, and live order rail',
     title: 'The Pulse of a Busy Shift',
