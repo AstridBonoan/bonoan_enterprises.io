@@ -240,6 +240,16 @@ const demos: readonly Demo[] = [
     industry: 'restaurant',
   },
   {
+    image: 'as-bakery.png',
+    alt: 'A&S Bakery landing page with artisan bread hero, gallery CTA, and pre-order pickup highlights',
+    title: 'Bakes Made to Be Admired—and Savored',
+    description:
+      'Artisan bakery experience—gallery-led hero, seasonal and pre-order paths, and pickup windows that feel as warm as the bread.',
+    href: 'https://astridbonoan.github.io/AS_Bakery.io/',
+    category: 'websites',
+    industry: 'cafe',
+  },
+  {
     image: 'as-restaurant-dashboard.png',
     alt: 'AS Restaurant Operations dashboard with sales trend, guest flow, and live order rail',
     title: 'The Pulse of a Busy Shift',
