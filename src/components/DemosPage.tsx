@@ -250,6 +250,36 @@ const demos: readonly Demo[] = [
     industry: 'cafe',
   },
   {
+    image: 'connollys-corner.png',
+    alt: "Connolly's Corner Irish pub restaurant hero with reserve a table CTA and Maspeth Queens branding",
+    title: 'Neighborhood Pub, Elevated',
+    description:
+      'Irish pub and steakhouse landing—dark hero, reserve-a-table flow, and menu-first navigation built for a local Queens favorite.',
+    href: 'https://astridbonoan.github.io/ConnollyCorner.io/',
+    category: 'websites',
+    industry: 'restaurant',
+  },
+  {
+    image: 'lechoneria-ny.png',
+    alt: 'Lechoneria New York Colombian restaurant hero with call to order and view menu CTAs',
+    title: 'Traditional Flavors, Homemade Meals',
+    description:
+      'Colombian restaurant experience—warm hero over real dishes, dual locations, and order paths that put call and menu one tap away.',
+    href: 'https://astridbonoan.github.io/LechoneriaNY.io/',
+    category: 'websites',
+    industry: 'restaurant',
+  },
+  {
+    image: 'checker-flag-grill.png',
+    alt: 'NYC Checker Flag Grill hero with burger photography, delivery buttons, and hours bar',
+    title: 'Comfort Food With Checkered Charm',
+    description:
+      'Queens grill landing—hero food photography, Uber and DoorDash hooks, and an at-a-glance hours and pickup bar for hungry locals.',
+    href: 'https://astridbonoan.github.io/checkerflaggrill.io/',
+    category: 'websites',
+    industry: 'restaurant',
+  },
+  {
     image: 'as-restaurant-dashboard.png',
     alt: 'AS Restaurant Operations dashboard with sales trend, guest flow, and live order rail',
     title: 'The Pulse of a Busy Shift',
