@@ -14,7 +14,10 @@ import './index.css'
 function App() {
   const { isDark, toggleTheme } = useTheme()
   const [contactSubject, setContactSubject] = useState('')
-  const getRoute = () => window.location.hash.replace('#', '') || '/'
+  const getRoute = () => {
+    const raw = window.location.hash.replace('#', '') || '/'
+    return raw.startsWith('/') ? raw : `/${raw}`
+  }
   const [pathname, setPathname] = useState(getRoute())
 
   useEffect(() => {

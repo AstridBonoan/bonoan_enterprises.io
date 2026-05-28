@@ -72,9 +72,9 @@ const demos: readonly Demo[] = [
   {
     image: 'mi-taller-auto-repair.png',
     alt: '1 Mi Taller Auto Repair Queens hero with schedule service and call now CTAs over engine photography',
-    title: 'Reliable Auto Repair in Queens',
+    title: '1 Mi Taller Auto Repair',
     description:
-      'Family-owned shop landing—engine hero, military discount callout, and schedule-or-call paths built to earn trust before the first bay opens.',
+      'Queens family-owned shop—engine hero, military discount callout, and schedule-or-call paths built to earn trust before the first bay opens.',
     href: 'https://astridbonoan.github.io/1-Mi-Taller-Auto-Repair.io/',
     category: 'websites',
     industry: 'auto',
