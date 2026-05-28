@@ -80,6 +80,16 @@ const demos: readonly Demo[] = [
     industry: 'auto',
   },
   {
+    image: 'vick-auto-repair.png',
+    alt: 'Vick Auto Repair Fresh Meadows hero with Google rating badge, schedule service and call now CTAs',
+    title: 'Vick Auto Repair',
+    description:
+      'Fresh Meadows shop landing—4.9 Google-rated trust badge, bold headline, and schedule-or-call paths for diagnostics, brakes, and full vehicle care.',
+    href: 'https://astridbonoan.github.io/vick-autoshop.io-/',
+    category: 'websites',
+    industry: 'auto',
+  },
+  {
     image: 'restaurant.png',
     alt: 'A&S Filipino Kitchen screenshot',
     title: 'Flavor Worth a Second Helping',
