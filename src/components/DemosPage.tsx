@@ -70,6 +70,16 @@ const demos: readonly Demo[] = [
     industry: 'auto',
   },
   {
+    image: 'mi-taller-auto-repair.png',
+    alt: '1 Mi Taller Auto Repair Queens hero with schedule service and call now CTAs over engine photography',
+    title: 'Reliable Auto Repair in Queens',
+    description:
+      'Family-owned shop landing—engine hero, military discount callout, and schedule-or-call paths built to earn trust before the first bay opens.',
+    href: 'https://astridbonoan.github.io/1-Mi-Taller-Auto-Repair.io/',
+    category: 'websites',
+    industry: 'auto',
+  },
+  {
     image: 'restaurant.png',
     alt: 'A&S Filipino Kitchen screenshot',
     title: 'Flavor Worth a Second Helping',
