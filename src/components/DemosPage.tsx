@@ -280,6 +280,16 @@ const demos: readonly Demo[] = [
     industry: 'restaurant',
   },
   {
+    image: 'good-eats.png',
+    alt: 'Good Eats Maspeth diner hero with comfort food headline and order online CTAs',
+    title: 'Comfort Food the Right Way',
+    description:
+      'Neighborhood diner landing—storefront hero, daily hours upfront, and menu and order-online paths for dine-in, takeout, and delivery.',
+    href: 'https://astridbonoan.github.io/GoodEats.io/',
+    category: 'websites',
+    industry: 'restaurant',
+  },
+  {
     image: 'as-restaurant-dashboard.png',
     alt: 'AS Restaurant Operations dashboard with sales trend, guest flow, and live order rail',
     title: 'The Pulse of a Busy Shift',
