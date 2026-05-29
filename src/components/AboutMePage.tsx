@@ -15,7 +15,7 @@ export function AboutMePage({ onNavigate }: AboutMePageProps) {
             About
           </p>
           <h1 className="mb-3 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
-            The studio behind your upgrade
+            One point of contact for your upgrade
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400">
             The person behind Bonoan Labs—focused on helping local businesses grow online.

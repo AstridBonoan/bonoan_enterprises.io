@@ -19,7 +19,7 @@ export function MyWorkPage({ onNavigate }: MyWorkPageProps) {
           My Work
         </p>
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
-          Client projects we&rsquo;ve shipped
+          Client projects I&rsquo;ve shipped
         </h1>
         <p className="mb-2 max-w-3xl text-lg text-slate-600 dark:text-slate-400">
           Real builds for paying clients—live tools, integrations, and design decisions behind each

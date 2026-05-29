@@ -7,7 +7,7 @@ export function ProcessSection() {
     <section id="process" aria-labelledby="process-heading" className="section-padding">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Our process"
+          eyebrow="My process"
           title="Simple steps from first call to launch"
           description="A straightforward path designed for busy owners—no confusing project speak."
         />

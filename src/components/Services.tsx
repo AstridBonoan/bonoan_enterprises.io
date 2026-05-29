@@ -31,7 +31,7 @@ export function Services() {
       <AnimatedSection className="mt-10 rounded-2xl border border-brand-200/80 bg-brand-50/50 p-6 dark:border-brand-500/20 dark:bg-brand-500/5 sm:p-8">
         <h3 className="text-lg font-bold text-slate-900 dark:text-white">Not sure where to start?</h3>
         <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-400">
-          Tell us about your business and goals—we&rsquo;ll recommend the right mix of website,
+          Tell me about your business and goals—I&rsquo;ll recommend the right mix of website,
           tools, and automation for your budget and timeline.
         </p>
       </AnimatedSection>

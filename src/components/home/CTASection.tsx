@@ -24,7 +24,7 @@ export function CTASection({ onNavigate }: CTASectionProps) {
                   Let&rsquo;s modernize your business
                 </h2>
                 <p className="mt-4 max-w-md text-base leading-relaxed text-slate-300">
-                  Share your goals—we&rsquo;ll respond with clear next steps. Free consultation, no
+                  Share your goals—I&rsquo;ll respond with clear next steps. Free consultation, no
                   obligation.
                 </p>
 
@@ -57,7 +57,7 @@ export function CTASection({ onNavigate }: CTASectionProps) {
                   Request a consultation
                 </h3>
                 <p className="mb-6 text-sm text-slate-600 dark:text-slate-400">
-                  Tell us about your business—we typically reply within 1–2 business days.
+                  Tell me about your business—I typically reply within 1–2 business days.
                 </p>
                 <ContactFormFields compact subject="Consultation request" />
                 <button

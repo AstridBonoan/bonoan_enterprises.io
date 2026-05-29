@@ -14,8 +14,8 @@ export function WhyChooseSection() {
           <SectionHeader
             align="left"
             eyebrow="Why Bonoan Labs"
-            title="A partner focused on your growth—not jargon"
-            description="We combine modern design, reliable technology, and direct communication so you always know where your project stands."
+            title="Focused on your growth—not jargon"
+            description="I combine modern design, reliable technology, and direct communication so you always know where your project stands."
           />
 
           <ul className="grid gap-3 sm:grid-cols-2">

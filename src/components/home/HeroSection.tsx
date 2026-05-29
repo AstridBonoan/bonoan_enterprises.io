@@ -27,7 +27,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
         >
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200/90 bg-white/80 px-4 py-1.5 text-xs font-semibold tracking-wide text-slate-600 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-500" aria-hidden />
-            Digital agency for local & growing businesses
+            Independent digital studio for local & growing businesses
           </p>
 
           <h1
@@ -53,7 +53,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               onClick={() => onNavigate('/my-work')}
               className="w-full sm:w-auto"
             >
-              View Our Work
+              View My Work
             </Button>
           </div>
         </motion.div>
