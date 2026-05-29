@@ -200,6 +200,16 @@ const demos: readonly Demo[] = [
     industry: 'barbershop',
   },
   {
+    image: 'dream-barbershop.png',
+    alt: 'DREAM Barbershop and Salon Elmhurst hero with lime-green branding, book now CTA, and Queens cuts headline',
+    title: 'DREAM Barbershop & Salon',
+    description:
+      'Elmhurst Queens shop landing—bold lime brand, book-now focus, and precision-cut messaging built to fill the chair.',
+    href: 'https://astridbonoan.github.io/DreamBarbershop.io/',
+    category: 'websites',
+    industry: 'barbershop',
+  },
+  {
     image: 'as-residential.png',
     alt: 'AS Residential custom homes and renovations landing page with quote CTA and project stats',
     title: 'Built to Last Starts at Home',
