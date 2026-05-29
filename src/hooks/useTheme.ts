@@ -4,11 +4,9 @@ export function useTheme() {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Check if user has a saved preference
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    const shouldBeDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
+    // Default to light for first-time visitors; only use dark if they chose it before.
+    const shouldBeDark = savedTheme === 'dark';
     setIsDark(shouldBeDark);
     updateTheme(shouldBeDark);
   }, []);
