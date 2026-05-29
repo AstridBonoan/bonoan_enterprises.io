@@ -10,11 +10,11 @@ interface NavbarProps {
 
 const NAV_LINKS = [
   { path: '/', label: 'Home' },
+  { path: '/about', label: 'About' },
   { path: '/services', label: 'Services' },
   { path: '/my-work', label: 'My Work' },
   { path: '/demos', label: 'Demos' },
   { path: '/pricing', label: 'Pricing' },
-  { path: '/about', label: 'About' },
 ] as const;
 
 export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarProps) {
