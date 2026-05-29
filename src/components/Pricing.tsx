@@ -69,24 +69,6 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
     }
   ];
 
-  const graphicDesign = [
-    {
-      name: "Starter Brand Package",
-      price: "$100",
-      features: ["Logo", "Business Card", "Color Palette"]
-    },
-    {
-      name: "Marketing Kit",
-      price: "$150",
-      features: ["Flyer", "Social Media Posts", "Ad Graphic"]
-    },
-    {
-      name: "Digital Presence Package",
-      price: "$300",
-      features: ["Landing Page Design", "Social Media Kit"]
-    }
-  ];
-
   const PricingCard = ({ category, tier }: { category: string; tier: { name: string; price: string; features: string[] } }) => (
     <div className="card-hover flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/70 sm:p-7">
       <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
@@ -154,7 +136,7 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
             Clear packages for every stage
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400">
-            Transparent pricing for websites, tools, and design—pick what fits your goals and budget.
+            Transparent pricing for websites and software tools—pick what fits your goals and budget.
           </p>
         </div>
 
@@ -184,7 +166,7 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
         </div>
 
         {/* SaaS Tools */}
-        <div className="mb-14">
+        <div>
           <div className="mb-6">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">
               SaaS Tools
@@ -196,23 +178,6 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {saasTools.map((tier, index) => (
               <PricingCard key={index} category="SaaS Tools" tier={tier} />
-            ))}
-          </div>
-        </div>
-
-        {/* Graphic Design */}
-        <div>
-          <div className="mb-6">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">
-              Graphic Design
-            </h3>
-            <p className="text-slate-600 dark:text-slate-400">
-              Professional branding materials and design packages
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {graphicDesign.map((tier, index) => (
-              <PricingCard key={index} category="Graphic Design" tier={tier} />
             ))}
           </div>
         </div>
