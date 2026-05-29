@@ -56,12 +56,6 @@ export const SERVICES = [
       'Scheduling, reservations, and order flows that reduce phone tag and missed opportunities.',
     icon: 'calendar',
   },
-  {
-    title: 'Website Redesigns',
-    description:
-      'Upgrade an outdated site into a modern experience that reflects the quality of your business.',
-    icon: 'refresh',
-  },
 ] as const;
 
 export const PROCESS_STEPS = [
