@@ -39,12 +39,6 @@ export const SERVICES = [
     icon: 'layers',
   },
   {
-    title: 'AI Integrations',
-    description:
-      'Smart assistants that answer common questions and free your staff to focus on in-person service.',
-    icon: 'bot',
-  },
-  {
     title: 'Mobile Optimization',
     description:
       'Layouts and performance tuned for phones—where most of your customers will find you first.',
