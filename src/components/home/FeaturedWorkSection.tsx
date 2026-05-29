@@ -28,11 +28,11 @@ export function FeaturedWorkSection({ onNavigate }: FeaturedWorkSectionProps) {
             {CLIENT_WORK.map((project, index) => (
               <AnimatedSection key={project.href} delay={index * 0.06}>
                 <article className="card-hover group overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm dark:border-white/10 dark:bg-slate-900/80">
-                  <div className="relative aspect-[16/9] overflow-hidden bg-slate-100 dark:bg-slate-800">
+                  <div className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-slate-100 p-2 dark:bg-slate-800 sm:p-3">
                     <img
                       src={`${clientImageBase}${project.image}`}
                       alt={project.imageAlt}
-                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                      className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                       loading="lazy"
                     />
                     <span className="absolute left-4 top-4 rounded-full bg-emerald-600 px-3 py-1 text-xs font-semibold text-white">
@@ -75,14 +75,14 @@ export function FeaturedWorkSection({ onNavigate }: FeaturedWorkSectionProps) {
             {FEATURED_DEMOS.map((project, index) => (
               <AnimatedSection key={project.title} delay={index * 0.04}>
                 <article className="card-hover group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm dark:border-white/10 dark:bg-slate-900/80">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-800">
+                  <div className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-slate-100 p-2 dark:bg-slate-800 sm:p-3">
                     <img
                       src={`${demoImageBase}${project.image}`}
                       alt={`${project.title} website preview`}
-                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                      className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                       loading="lazy"
                     />
-                    <span className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[0.65rem] font-semibold text-slate-800 backdrop-blur sm:text-xs">
+                    <span className="absolute left-3 top-3 z-10 rounded-full bg-white/95 px-2.5 py-1 text-[0.65rem] font-semibold text-slate-800 shadow-sm backdrop-blur sm:text-xs dark:bg-slate-900/95 dark:text-slate-100">
                       {project.industry}
                     </span>
                   </div>
