@@ -18,8 +18,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <span className="text-lg font-bold text-white">{BRAND.name}</span>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-slate-400">
-              A modern digital studio helping local businesses upgrade their online presence with
-              websites, software, AI, and automation.
+              {BRAND.tagline}
             </p>
           </div>
 

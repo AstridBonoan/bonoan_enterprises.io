@@ -17,8 +17,8 @@ export default {
           900: '#312e81',
           950: '#1e1b4b',
         },
-        surface: '#fafafa',
-        'surface-dark': '#030712',
+        surface: '#f8fafc',
+        'surface-dark': '#020617',
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],

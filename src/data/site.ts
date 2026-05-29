@@ -1,158 +1,154 @@
 export const BRAND = {
   name: 'Bonoan Labs',
-  tagline: 'Modern websites & AI solutions for growing businesses',
+  headline: 'Modern Digital Solutions for Growing Businesses',
+  tagline:
+    'Custom websites, software, and automation designed to help businesses operate smarter and look more professional online.',
   email: 'hello@bonoanlabs.com',
   instagram: 'https://www.instagram.com/',
   instagramHandle: '@bonoanlabs',
   calendlyPlaceholder: '#schedule-intro-call',
 } as const;
 
-export const METRICS = [
-  { label: 'Faster booking', detail: 'Clear calls-to-action that turn visits into appointments' },
-  { label: 'Mobile-first', detail: 'Looks great on every phone your customers use' },
-  { label: 'Better experience', detail: 'Simple navigation that builds trust instantly' },
-  { label: 'Stronger presence', detail: 'A professional look that matches your quality' },
-] as const;
-
 export const INDUSTRIES = [
   { name: 'Restaurants', icon: 'utensils' },
-  { name: 'Auto shops', icon: 'wrench' },
+  { name: 'Auto Shops', icon: 'wrench' },
   { name: 'Barbershops', icon: 'scissors' },
   { name: 'Construction', icon: 'hammer' },
+  { name: 'Local Businesses', icon: 'store' },
   { name: 'Fitness', icon: 'dumbbell' },
-  { name: 'Local services', icon: 'map-pin' },
+  { name: 'Service Businesses', icon: 'briefcase' },
 ] as const;
 
 export const SERVICES = [
   {
     title: 'Website Design & Development',
     description:
-      'Custom websites that look professional, load fast, and guide customers to call, book, or order.',
+      'Professional sites that load fast, look credible, and guide customers to call, book, or buy.',
     icon: 'globe',
-  },
-  {
-    title: 'AI Chatbots',
-    description:
-      'Answer common questions 24/7 so you spend less time on the phone and more time running the shop.',
-    icon: 'bot',
-  },
-  {
-    title: 'SaaS Tools',
-    description:
-      'Simple software for your team—dashboards, client portals, and tools that fit how you actually work.',
-    icon: 'layers',
   },
   {
     title: 'Business Automation',
     description:
-      'Connect forms, email, and workflows so leads and requests land where they belong—automatically.',
+      'Forms, email, and workflows connected so leads and requests reach the right place—without manual chasing.',
     icon: 'zap',
   },
   {
-    title: 'Mobile-Friendly Redesigns',
+    title: 'Custom Software Solutions',
     description:
-      'Refresh an outdated site so it feels modern, readable, and easy to use on every screen size.',
+      'Dashboards, portals, and tools built around how your team actually runs day to day.',
+    icon: 'layers',
+  },
+  {
+    title: 'AI Integrations',
+    description:
+      'Smart assistants that answer common questions and free your staff to focus on in-person service.',
+    icon: 'bot',
+  },
+  {
+    title: 'Mobile Optimization',
+    description:
+      'Layouts and performance tuned for phones—where most of your customers will find you first.',
     icon: 'smartphone',
   },
   {
     title: 'Booking & Ordering Systems',
     description:
-      'Let customers schedule service, reserve a table, or place orders without extra back-and-forth.',
+      'Scheduling, reservations, and order flows that reduce phone tag and missed opportunities.',
     icon: 'calendar',
   },
   {
-    title: 'Accessibility-Focused Solutions',
+    title: 'Website Redesigns',
     description:
-      'Inclusive design so more people can find you, read your content, and take action with confidence.',
-    icon: 'accessibility',
+      'Upgrade an outdated site into a modern experience that reflects the quality of your business.',
+    icon: 'refresh',
   },
 ] as const;
 
 export const PROCESS_STEPS = [
   {
     step: '01',
-    title: 'Discovery',
+    title: 'Consultation',
     description:
-      'We learn your goals, customers, and what success looks like—no tech jargon, just clarity.',
+      'We learn your goals, customers, and timeline—in plain language, with no pressure.',
   },
   {
     step: '02',
-    title: 'Design & Build',
+    title: 'Design & Development',
     description:
-      'You see progress early. We refine the look, content, and tools until it feels right for your brand.',
+      'You review progress as we build. We refine design, content, and tools until it feels right.',
   },
   {
     step: '03',
     title: 'Launch & Support',
     description:
-      'Go live with confidence. We handle handoff, updates, and support so you stay focused on the business.',
+      'Go live with confidence. We help with launch, updates, and ongoing support when you need it.',
   },
 ] as const;
 
 export const WHY_CHOOSE = [
-  'Mobile-first design',
+  'Mobile-first development',
+  'Modern design standards',
   'Fast turnaround',
-  'Personalized service',
-  'Modern technology',
-  'AI integration',
-  'Small business focus',
-  'Accessibility-first mindset',
-  'Direct communication',
+  'Personalized support',
+  'Modern technologies',
+  'Focus on business growth',
+  'Professional user experience',
 ] as const;
 
-export const FEATURED_PROJECTS = [
+export const FEATURED_DEMOS = [
   {
     title: 'Vick Auto Repair',
-    industry: 'Auto shop',
-    problem: 'Turn Google searches into scheduled service calls',
+    industry: 'Auto Shop',
+    problem: 'Turn search traffic into scheduled service calls',
     image: 'vick-auto-repair.png',
     href: 'https://astridbonoan.github.io/vick-autoshop.io-/',
   },
   {
-    title: '1 Mi Taller Auto Repair',
-    industry: 'Auto shop',
-    problem: 'Build trust before the first bay opens',
-    image: 'mi-taller-auto-repair.png',
-    href: 'https://astridbonoan.github.io/1-Mi-Taller-Auto-Repair.io/',
-  },
-  {
     title: 'Good Eats',
     industry: 'Restaurant',
-    problem: 'Menu, hours, and order paths in one clear place',
+    problem: 'Menu, hours, and ordering in one trusted place',
     image: 'good-eats.png',
     href: 'https://astridbonoan.github.io/GoodEats.io/',
   },
   {
-    title: 'Ember Bowl Co.',
-    industry: 'Restaurant',
-    problem: 'Warm brand story that drives dine-in and takeout',
-    image: 'ember-bowl-co.png',
-    href: 'https://astridbonoan.github.io/ember-bowl-co.io/',
-  },
-  {
     title: 'A&S Barbershop',
     industry: 'Barbershop',
-    problem: 'Book appointments without phone tag',
+    problem: 'Booking without endless phone tag',
     image: 'as-barbershop.png',
     href: 'https://astridbonoan.github.io/AS_Barbershop.io/',
   },
   {
     title: 'A&S Renovations',
     industry: 'Construction',
-    problem: 'Credibility and clear next steps for big projects',
+    problem: 'Credibility and clear next steps for major projects',
     image: 'as-renovations.png',
     href: 'https://astridbonoan.github.io/AS-Renovations.io/',
   },
+  {
+    title: '1 Mi Taller Auto Repair',
+    industry: 'Auto Shop',
+    problem: 'Earn trust before the first bay opens',
+    image: 'mi-taller-auto-repair.png',
+    href: 'https://astridbonoan.github.io/1-Mi-Taller-Auto-Repair.io/',
+  },
+  {
+    title: 'Ember Bowl Co.',
+    industry: 'Restaurant',
+    problem: 'Brand story that drives dine-in and takeout',
+    image: 'ember-bowl-co.png',
+    href: 'https://astridbonoan.github.io/ember-bowl-co.io/',
+  },
 ] as const;
 
-/** Real client projects (live builds, not portfolio demos). */
+/** Live client projects (not portfolio demos). */
 export const CLIENT_WORK = [
   {
     title: 'Project Cost Estimator',
     client: 'Tamay Enterprises',
     industry: 'Construction',
+    problem: 'Streamline estimates, deposits, and scheduling for renovation clients',
     description:
-      'Multi-step estimator for repairs and renovations—Stripe deposit payments, Google Calendar scheduling, and a UI refresh aligned to their brand.',
+      'Multi-step estimator with Stripe deposits, Google Calendar scheduling, and a refreshed interface aligned to their brand.',
     image: 'tamay-estimator.png',
     imageAlt:
       'Tamay Enterprises project cost estimator showing the project type selection step and multi-step progress bar',

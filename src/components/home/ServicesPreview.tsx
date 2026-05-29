@@ -10,22 +10,27 @@ interface ServicesPreviewProps {
 
 export function ServicesPreview({ onNavigate }: ServicesPreviewProps) {
   return (
-    <section className="py-16 sm:py-24">
+    <section id="services" aria-labelledby="services-heading" className="section-padding">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Services"
-          title="Everything you need to grow online"
-          description="Clear solutions with real business value—no confusing tech talk."
+          title="Digital solutions that move your business forward"
+          description="Practical services with clear outcomes—built for owners who want results, not technical overwhelm."
         />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, index) => (
-            <AnimatedSection key={service.title} delay={index * 0.04}>
-              <article className="card-hover group flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/70 sm:p-7">
-                <span className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500/15 to-violet-500/15 text-brand-600 transition-transform duration-300 group-hover:scale-105 dark:text-brand-400">
-                  <ServiceIcon name={service.icon} />
+            <AnimatedSection key={service.title} delay={index * 0.03}>
+              <article className="card-hover group flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/75 sm:p-7">
+                <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200/80 bg-slate-50 text-slate-700 transition-colors group-hover:border-brand-200 group-hover:bg-brand-50 group-hover:text-brand-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:group-hover:border-brand-500/30 dark:group-hover:bg-brand-500/10 dark:group-hover:text-brand-400">
+                  <ServiceIcon name={service.icon} className="h-6 w-6" />
                 </span>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white">{service.title}</h3>
+                <h3
+                  id={index === 0 ? 'services-heading' : undefined}
+                  className="text-lg font-bold text-slate-900 dark:text-white"
+                >
+                  {service.title}
+                </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                   {service.description}
                 </p>
@@ -34,9 +39,9 @@ export function ServicesPreview({ onNavigate }: ServicesPreviewProps) {
           ))}
         </div>
 
-        <AnimatedSection className="mt-10 flex justify-center">
+        <AnimatedSection className="mt-12 flex justify-center">
           <Button variant="secondary" onClick={() => onNavigate('/services')}>
-            Explore all services
+            View service details
           </Button>
         </AnimatedSection>
       </div>

@@ -44,10 +44,10 @@ export function ServiceIcon({ name, className = 'h-6 w-6' }: ServiceIconProps) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M8 3v2m8-2v2M5 9h14M6 5h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2z" />
         </svg>
       );
-    case 'accessibility':
+    case 'refresh':
       return (
         <svg {...props}>
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 4a2 2 0 100-4 2 2 0 000 4zm-7 8a7 7 0 0114 0M7 21l2.5-6.5M17 21l-2.5-6.5M12 11v10" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 4v6h6M20 20v-6h-6M20 8a8 8 0 00-14.9-3M4 16a8 8 0 0014.9 3" />
         </svg>
       );
     default:
@@ -91,6 +91,18 @@ export function IndustryIcon({ name, className = 'h-5 w-5' }: ServiceIconProps) 
       return (
         <svg {...props}>
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 10h2v4H4v-4zm14 0h2v4h-2v-4zM8 12h8" />
+        </svg>
+      );
+    case 'store':
+      return (
+        <svg {...props}>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 10h16M6 10V7l2-3h8l2 3v3M6 20v-6h12v6" />
+        </svg>
+      );
+    case 'briefcase':
+      return (
+        <svg {...props}>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2m-9 4h10M6 11v8a2 2 0 002 2h8a2 2 0 002-2v-8" />
         </svg>
       );
     default:

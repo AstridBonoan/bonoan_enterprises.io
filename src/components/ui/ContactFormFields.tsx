@@ -1,0 +1,146 @@
+import { useState, useEffect, useRef } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
+import { Button } from './Button';
+
+const FORMSPREE_FORM_ID = 'xwvyrdyq';
+
+export const contactInputClass =
+  'w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 dark:border-white/10 dark:bg-slate-950/80 dark:text-white dark:placeholder-slate-500 dark:focus:border-brand-400 dark:focus:ring-brand-400/20';
+
+interface ContactFormFieldsProps {
+  subject?: string;
+  compact?: boolean;
+  onSuccess?: () => void;
+}
+
+export function ContactFormFields({
+  subject = '',
+  compact = false,
+  onSuccess,
+}: ContactFormFieldsProps) {
+  const [state, handleSubmit, reset] = useForm(FORMSPREE_FORM_ID);
+  const [formSubject, setFormSubject] = useState(subject);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    setFormSubject(subject);
+  }, [subject]);
+
+  useEffect(() => {
+    if (state.succeeded && onSuccess) {
+      onSuccess();
+    }
+  }, [state.succeeded, onSuccess]);
+
+  const handleSendAnother = () => {
+    reset();
+    formRef.current?.reset();
+    setFormSubject(subject);
+  };
+
+  if (state.succeeded) {
+    return (
+      <div
+        className={
+          compact
+            ? 'rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-center dark:border-emerald-800/50 dark:bg-emerald-950/30'
+            : 'rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center dark:border-emerald-800/50 dark:bg-emerald-950/30'
+        }
+      >
+        <p className="font-semibold text-emerald-800 dark:text-emerald-300">
+          Thank you—we received your message and will reply within 1–2 business days.
+        </p>
+        <Button variant="secondary" onClick={handleSendAnother} className="mt-4">
+          Send another message
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className={compact ? 'space-y-4' : 'space-y-5'}
+      noValidate
+    >
+      <div className={compact ? 'grid grid-cols-1 gap-4 sm:grid-cols-2' : 'grid grid-cols-1 gap-5 sm:grid-cols-2'}>
+        <div>
+          <label htmlFor="contact-name" className="mb-2 block text-sm font-semibold text-slate-900 dark:text-white">
+            Name
+          </label>
+          <input
+            type="text"
+            id="contact-name"
+            name="name"
+            required
+            className={contactInputClass}
+            placeholder="Your name"
+          />
+          <ValidationError prefix="Name" field="name" errors={state.errors} className="mt-1 text-sm text-red-600" />
+        </div>
+        <div>
+          <label htmlFor="contact-email" className="mb-2 block text-sm font-semibold text-slate-900 dark:text-white">
+            Email
+          </label>
+          <input
+            type="email"
+            id="contact-email"
+            name="email"
+            required
+            className={contactInputClass}
+            placeholder="you@business.com"
+          />
+          <ValidationError prefix="Email" field="email" errors={state.errors} className="mt-1 text-sm text-red-600" />
+        </div>
+      </div>
+
+      {!compact && (
+        <div>
+          <label htmlFor="contact-subject" className="mb-2 block text-sm font-semibold text-slate-900 dark:text-white">
+            Subject
+          </label>
+          <input
+            type="text"
+            id="contact-subject"
+            name="subject"
+            value={formSubject}
+            onChange={(e) => setFormSubject(e.target.value)}
+            required
+            className={contactInputClass}
+            placeholder="Website, automation, consultation..."
+          />
+          <ValidationError prefix="Subject" field="subject" errors={state.errors} className="mt-1 text-sm text-red-600" />
+        </div>
+      )}
+
+      {compact && (
+        <input type="hidden" name="subject" value={formSubject || 'Homepage consultation request'} />
+      )}
+
+      <div>
+        <label htmlFor="contact-message" className="mb-2 block text-sm font-semibold text-slate-900 dark:text-white">
+          Message
+        </label>
+        <textarea
+          id="contact-message"
+          name="message"
+          required
+          rows={compact ? 4 : 5}
+          className={`${contactInputClass} resize-none`}
+          placeholder="Tell us about your business and what you'd like to improve..."
+        />
+        <ValidationError prefix="Message" field="message" errors={state.errors} className="mt-1 text-sm text-red-600" />
+      </div>
+
+      <ValidationError
+        errors={state.errors}
+        className="rounded-xl border border-red-200 bg-red-50 p-3 text-sm font-medium text-red-800 dark:border-red-800 dark:bg-red-950/30 dark:text-red-300"
+      />
+
+      <Button type="submit" disabled={state.submitting} className="w-full">
+        {state.submitting ? 'Sending...' : compact ? 'Request consultation' : 'Send message'}
+      </Button>
+    </form>
+  );
+}

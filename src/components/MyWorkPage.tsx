@@ -59,6 +59,10 @@ export function MyWorkPage({ onNavigate }: MyWorkPageProps) {
                     {project.title}
                   </h2>
                   <p className="mb-2 text-xs font-medium text-slate-500">{project.industry}</p>
+                  <p className="mb-2 text-sm text-slate-600 dark:text-slate-400">
+                    <span className="font-medium text-slate-800 dark:text-slate-200">Challenge: </span>
+                    {project.problem}
+                  </p>
                   <p className="mb-4 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                     {project.description}
                   </p>
