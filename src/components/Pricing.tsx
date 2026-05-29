@@ -87,8 +87,8 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
     }
   ];
 
-  const PricingCard = ({ category, tier }: { category: string; tier: any }) => (
-    <div className="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-200 flex flex-col h-full">
+  const PricingCard = ({ category, tier }: { category: string; tier: { name: string; price: string; features: string[] } }) => (
+    <div className="card-hover flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/70 sm:p-7">
       <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
         {tier.name}
       </h4>
@@ -98,9 +98,9 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
       <div className="space-y-2.5 flex-grow">
         {tier.features.map((feature: string, idx: number) => (
           <div key={idx} className="flex items-start">
-            <span className="w-5 h-5 bg-slate-900 dark:bg-white rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+            <span className="mr-3 mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-600 dark:bg-brand-500">
               <svg
-                className="w-3 h-3 text-white dark:text-slate-900"
+                className="h-3 w-3 text-white"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -122,7 +122,7 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
       >
         <button
           onClick={() => onSelect?.(`${category}: ${tier.name}`)}
-          className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors duration-200"
+          className="w-full rounded-xl bg-brand-600 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-500 dark:bg-brand-500 dark:hover:bg-brand-400"
         >
           Keep In Touch
         </button>
@@ -143,19 +143,22 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
   return (
     <section
       id="pricing"
-      className="pt-28 pb-14 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950 transition-colors duration-200"
+      className="min-h-screen bg-surface px-4 pb-20 pt-28 transition-colors duration-300 dark:bg-surface-dark sm:px-6 sm:pt-32 lg:px-8"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-3">
+      <div className="mx-auto max-w-7xl">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400">
             Pricing
+          </p>
+          <h2 className="mb-3 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+            Clear packages for every stage
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300">
-            Transparent pricing for every project scale and budget
+          <p className="text-lg text-slate-600 dark:text-slate-400">
+            Transparent pricing for websites, tools, and design—pick what fits your goals and budget.
           </p>
         </div>
 
-        <div className="mb-12 mx-auto max-w-3xl rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-700 dark:bg-slate-900/60 sm:px-6 sm:py-5">
+        <div className="mx-auto mb-12 max-w-3xl rounded-2xl border border-brand-200/80 bg-brand-50/50 px-5 py-4 dark:border-brand-500/20 dark:bg-brand-500/5 sm:px-6 sm:py-5">
           <p className="text-center text-sm leading-relaxed text-slate-700 dark:text-slate-300 sm:text-left sm:text-base">
             A <strong className="font-semibold text-slate-900 dark:text-white">50%</strong> upfront
             deposit is required to begin all projects. The remaining balance is due upon completion,

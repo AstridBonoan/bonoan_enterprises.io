@@ -1,75 +1,40 @@
+import { SERVICES } from '../data/site';
+import { AnimatedSection } from './ui/AnimatedSection';
+import { PageShell } from './ui/PageShell';
+import { ServiceIcon } from './ui/ServiceIcon';
+
 export function Services() {
-  const services = [
-    {
-      title: "Website Creation",
-      description: "Custom, responsive websites built with modern technologies. From landing pages to complex web applications, I create digital experiences that convert.",
-      features: ["Responsive Design", "SEO Optimized", "Fast Performance", "Mobile-First"]
-    },
-    {
-      title: "SaaS Tools",
-      description: "Build scalable Software-as-a-Service solutions. I develop robust platforms with secure authentication, payment processing, and real-time features.",
-      features: ["Cloud-Ready", "Scalable Architecture", "Secure Integration", "24/7 Reliability"]
-    },
-    {
-      title: "Graphic Design",
-      description: "Professional business cards and branding materials that make lasting impressions. Design that reflects your company's identity and values.",
-      features: ["Brand Identity", "Print Design", "Digital Assets", "Style Guides"]
-    }
-  ];
-
   return (
-    <section
-      id="services"
-      className="min-h-screen pt-28 pb-14 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950 transition-colors duration-200"
+    <PageShell
+      eyebrow="Services"
+      title="Solutions that help your business grow"
+      description="Every service is explained in plain language—focused on results your customers and team will feel."
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-3">
-            Services
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300">
-            Comprehensive solutions tailored to your business needs
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-slate-800 rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow duration-200"
-            >
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                {service.title}
-              </h3>
-              
-              <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-                {service.description}
-              </p>
-
-              <div className="space-y-2">
-                {service.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center">
-                    <span className="w-5 h-5 bg-slate-900 dark:bg-white rounded-full flex items-center justify-center mr-3">
-                      <svg
-                        className="w-3 h-3 text-white dark:text-slate-900"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                    </span>
-                    <span className="text-slate-700 dark:text-slate-200">{feature}</span>
-                  </div>
-                ))}
+      <div className="grid gap-5 sm:grid-cols-2">
+        {SERVICES.map((service, index) => (
+          <AnimatedSection key={service.title} delay={index * 0.04}>
+            <article className="card-hover flex h-full gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/70 sm:p-7">
+              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500/15 to-violet-500/15 text-brand-600 dark:text-brand-400">
+                <ServiceIcon name={service.icon} className="h-6 w-6" />
+              </span>
+              <div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                  {service.description}
+                </p>
               </div>
-            </div>
-          ))}
-        </div>
+            </article>
+          </AnimatedSection>
+        ))}
       </div>
-    </section>
+
+      <AnimatedSection className="mt-10 rounded-2xl border border-brand-200/80 bg-brand-50/50 p-6 dark:border-brand-500/20 dark:bg-brand-500/5 sm:p-8">
+        <h3 className="text-lg font-bold text-slate-900 dark:text-white">Not sure where to start?</h3>
+        <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-400">
+          Tell us about your business and goals—we&rsquo;ll recommend the right mix of website,
+          tools, and automation for your budget and timeline.
+        </p>
+      </AnimatedSection>
+    </PageShell>
   );
 }

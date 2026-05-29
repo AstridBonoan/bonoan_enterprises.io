@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTheme } from './hooks/useTheme'
 import { Navbar } from './components/Navbar'
-import { Hero } from './components/Hero'
+import { HomePage } from './components/HomePage'
 import { Services } from './components/Services'
 import { Pricing } from './components/Pricing'
 import { ContactForm } from './components/ContactForm'
@@ -41,10 +41,10 @@ function App() {
   }
 
   return (
-    <div className="bg-white dark:bg-slate-950 transition-colors duration-200">
+    <div className="min-h-screen bg-surface transition-colors duration-300 dark:bg-surface-dark">
       <Navbar isDark={isDark} onThemeToggle={toggleTheme} pathname={pathname} onNavigate={navigateTo} />
       <main>
-        {pathname === '/' && <Hero onNavigate={navigateTo} />}
+        {pathname === '/' && <HomePage onNavigate={navigateTo} />}
         {pathname === '/services' && <Services />}
         {pathname === '/pricing' && <Pricing onSelect={handlePricingSelect} />}
         {pathname === '/contact' && <ContactForm subject={contactSubject} />}

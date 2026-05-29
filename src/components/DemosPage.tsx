@@ -355,7 +355,7 @@ const MOBILE_PAGE = 8;
 const compactMq = '(max-width: 639px)';
 
 const cardShell =
-  'flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900';
+  'card-hover flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm dark:border-white/10 dark:bg-slate-900/80';
 
 function countFor(filter: FilterId): number {
   return demos.filter((d) => d.category === filter).length;
@@ -414,12 +414,15 @@ export function DemosPage() {
   const mobileRemaining = isCompact ? Math.max(0, visibleDemos.length - demosToRender.length) : 0;
 
   return (
-    <section className="min-h-screen bg-white px-4 pb-20 pt-32 transition-colors duration-200 dark:bg-slate-950 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-surface px-4 pb-20 pt-28 transition-colors duration-300 dark:bg-surface-dark sm:px-6 sm:pt-32 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <h1 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
-          Demos
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400">
+          Portfolio
+        </p>
+        <h1 className="mb-4 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+          Work & demos
         </h1>
-        <p className="mb-4 text-lg text-slate-600 dark:text-slate-300 sm:mb-6">
+        <p className="mb-4 max-w-3xl text-lg text-slate-600 dark:text-slate-400 sm:mb-6">
           Browse website and SaaS demos by category—pick a tab below, then narrow by industry if
           you like.
         </p>
@@ -445,8 +448,8 @@ export function DemosPage() {
                 className={
                   'flex w-full min-w-0 flex-col items-center justify-center gap-1 rounded-full px-2 py-2.5 text-center text-xs font-semibold leading-tight transition-colors sm:inline-flex sm:w-auto sm:flex-row sm:items-center sm:gap-2 sm:px-4 sm:py-2 sm:text-sm sm:leading-normal ' +
                   (isActive
-                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700')
+                    ? 'bg-brand-600 text-white shadow-sm dark:bg-brand-500'
+                    : 'bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50 dark:bg-slate-900/80 dark:text-slate-300 dark:ring-white/10 dark:hover:bg-slate-800')
                 }
               >
                 <span className="break-words">{filter.label}</span>

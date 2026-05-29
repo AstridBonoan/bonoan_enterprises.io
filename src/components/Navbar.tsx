@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from './ui/Button';
 
 interface NavbarProps {
   isDark: boolean;
@@ -6,6 +7,14 @@ interface NavbarProps {
   pathname: string;
   onNavigate: (path: string) => void;
 }
+
+const NAV_LINKS = [
+  { path: '/', label: 'Home' },
+  { path: '/services', label: 'Services' },
+  { path: '/demos', label: 'Work' },
+  { path: '/pricing', label: 'Pricing' },
+  { path: '/about', label: 'About' },
+] as const;
 
 export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,269 +25,168 @@ export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarPr
       onNavigate('/');
       return;
     }
-
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const navLinkClass = (path: string) =>
+    'text-sm font-medium transition-colors ' +
+    (pathname === path
+      ? 'text-brand-600 dark:text-brand-400'
+      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white');
+
   return (
-    <nav className="fixed top-0 w-full bg-white dark:bg-slate-900 shadow-md z-50 transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+    <header className="fixed top-0 z-50 w-full nav-glass">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <button type="button" onClick={goToHome} className="flex shrink-0 items-center gap-2.5">
+          <img src={logoMarkSrc} alt="" className="h-9 w-auto" />
+          <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
+            Bonoan Labs
+          </span>
+        </button>
+
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Main">
+          {NAV_LINKS.map((link) => (
+            <button
+              key={link.path}
+              type="button"
+              onClick={() => onNavigate(link.path)}
+              className={navLinkClass(link.path)}
+            >
+              {link.label}
+            </button>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
+            onClick={onThemeToggle}
             type="button"
-            onClick={goToHome}
-            className="flex-shrink-0 flex items-center gap-3"
+            className="hidden rounded-xl border border-slate-200/80 p-2.5 text-slate-700 transition-colors hover:bg-slate-100 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/10 md:flex"
+            aria-label="Toggle theme"
           >
-            <img
-              src={logoMarkSrc}
-              alt="Bonoan Labs"
-              className="h-10 w-auto"
-            />
-            <span className="text-2xl font-bold text-slate-900 dark:text-white">
-              Bonoan Labs
-            </span>
-          </button>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => onNavigate('/')}
-              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              Home
-            </button>
-            <button
-              onClick={() => onNavigate('/about')}
-              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              About Me
-            </button>
-            <button
-              onClick={() => onNavigate('/services')}
-              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => onNavigate('/pricing')}
-              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              Pricing
-            </button>
-            <button
-              onClick={() => onNavigate('/demos')}
-              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              Demos
-            </button>
-            <button
-              onClick={() => onNavigate('/my-work')}
-              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              My Work
-            </button>
-            <button
-              onClick={() => onNavigate('/contact')}
-              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              Contact
-            </button>
-          </div>
-
-          {/* Theme Toggle (desktop) & Mobile Menu */}
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={onThemeToggle}
-              type="button"
-              className="hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors md:flex md:items-center md:justify-center"
-              aria-label="Toggle theme"
-            >
-              {isDark ? (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm5.657-9.193a1 1 0 00-1.414 0l-.707.707A1 1 0 005.05 13.536l.707.707a1 1 0 001.414-1.414l-.707-.707zm2.828 2.829a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              )}
-            </button>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              type="button"
-              className="md:hidden p-2 rounded-lg text-slate-900 dark:text-white"
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-nav-menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                {isMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
+            {isDark ? (
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
               </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation Sidebar */}
-        {/* Overlay */}
-        <div
-          className={`fixed inset-0 bg-black z-40 md:hidden transition-opacity duration-500 ease-in-out ${
-            isMenuOpen ? 'bg-opacity-50 opacity-100' : 'bg-opacity-0 opacity-0 pointer-events-none'
-          }`}
-          onClick={() => setIsMenuOpen(false)}
-        />
-        {/* Sidebar Menu */}
-        <div
-          id="mobile-nav-menu"
-          className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-slate-900 shadow-2xl z-40 md:hidden transform transition-all duration-500 ease-in-out border-l border-slate-200 dark:border-slate-800 flex flex-col ${
-            isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-          }`}
-          style={{ pointerEvents: isMenuOpen ? 'auto' : 'none' }}
-        >
-          {/* Close Button */}
-          <div className="flex justify-between items-center px-6 py-4 border-b border-slate-200 dark:border-slate-800">
-            <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Menu</h2>
-            <button
-              onClick={() => setIsMenuOpen(false)}
-              className="p-1 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-              aria-label="Close menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+            ) : (
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
+                  fillRule="evenodd"
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm5.657-9.193a1 1 0 00-1.414 0l-.707.707A1 1 0 005.05 13.536l.707.707a1 1 0 001.414-1.414l-.707-.707zm2.828 2.829a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z"
+                  clipRule="evenodd"
                 />
               </svg>
-            </button>
-          </div>
+            )}
+          </button>
 
-          {/* Menu Items */}
-          <nav className="flex flex-1 flex-col overflow-y-auto">
-            <button
-              onClick={() => {
-                onNavigate('/');
-                setIsMenuOpen(false);
-              }}
-              className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-b border-slate-100 dark:border-slate-800"
-            >
-              Home
-            </button>
-            <button
-              onClick={() => {
-                onNavigate('/about');
-                setIsMenuOpen(false);
-              }}
-              className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-b border-slate-100 dark:border-slate-800"
-            >
-              About Me
-            </button>
-            <button
-              onClick={() => {
-                onNavigate('/services');
-                setIsMenuOpen(false);
-              }}
-              className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-b border-slate-100 dark:border-slate-800"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => {
-                onNavigate('/pricing');
-                setIsMenuOpen(false);
-              }}
-              className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-b border-slate-100 dark:border-slate-800"
-            >
-              Pricing
-            </button>
-            <button
-              onClick={() => {
-                onNavigate('/demos');
-                setIsMenuOpen(false);
-              }}
-              className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-b border-slate-100 dark:border-slate-800"
-            >
-              Demos
-            </button>
-            <button
-              onClick={() => {
-                onNavigate('/my-work');
-                setIsMenuOpen(false);
-              }}
-              className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-b border-slate-100 dark:border-slate-800"
-            >
-              My Work
-            </button>
-            <button
-              onClick={() => {
-                onNavigate('/contact');
-                setIsMenuOpen(false);
-              }}
-              className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-b border-slate-100 dark:border-slate-800"
-            >
-              Contact
-            </button>
-          </nav>
+          <Button
+            onClick={() => onNavigate('/contact')}
+            className="hidden py-2.5 text-sm md:inline-flex"
+          >
+            Start a Project
+          </Button>
 
-          <div className="shrink-0 border-t border-slate-200 dark:border-slate-800">
-            <button
-              type="button"
-              onClick={onThemeToggle}
-              className="flex w-full items-center gap-3 px-6 py-4 text-left text-slate-700 transition-colors duration-200 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
-              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-yellow-400">
-                {isDark ? (
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
-                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                  </svg>
-                ) : (
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
-                    <path
-                      fillRule="evenodd"
-                      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm5.657-9.193a1 1 0 00-1.414 0l-.707.707A1 1 0 005.05 13.536l.707.707a1 1 0 001.414-1.414l-.707-.707zm2.828 2.829a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                )}
-              </span>
-              <span className="text-sm font-semibold">
-                {isDark ? 'Light mode' : 'Dark mode'}
-              </span>
-            </button>
-          </div>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            type="button"
+            className="rounded-xl p-2.5 text-slate-900 dark:text-white md:hidden"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-nav-menu"
+            aria-label="Open menu"
+          >
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
-    </nav>
+
+      <div
+        className={`fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity md:hidden ${
+          isMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+        aria-hidden={!isMenuOpen}
+      />
+
+      <div
+        id="mobile-nav-menu"
+        className={`fixed right-0 top-0 z-50 flex h-full w-[min(100%,20rem)] flex-col border-l border-slate-200 bg-white shadow-2xl transition-transform duration-300 dark:border-white/10 dark:bg-slate-950 md:hidden ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4 dark:border-white/10">
+          <span className="font-semibold text-slate-900 dark:text-white">Menu</span>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(false)}
+            className="rounded-lg p-1 text-slate-600 dark:text-slate-300"
+            aria-label="Close menu"
+          >
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <nav className="flex flex-1 flex-col overflow-y-auto p-3" aria-label="Mobile">
+          {NAV_LINKS.map((link) => (
+            <button
+              key={link.path}
+              type="button"
+              onClick={() => {
+                onNavigate(link.path);
+                setIsMenuOpen(false);
+              }}
+              className={
+                'rounded-xl px-4 py-3.5 text-left text-sm font-medium transition-colors ' +
+                (pathname === link.path
+                  ? 'bg-brand-50 text-brand-700 dark:bg-brand-500/10 dark:text-brand-300'
+                  : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5')
+              }
+            >
+              {link.label}
+            </button>
+          ))}
+          <button
+            type="button"
+            onClick={() => {
+              onNavigate('/my-work');
+              setIsMenuOpen(false);
+            }}
+            className="rounded-xl px-4 py-3.5 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
+          >
+            Client work
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              onNavigate('/contact');
+              setIsMenuOpen(false);
+            }}
+            className="rounded-xl px-4 py-3.5 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
+          >
+            Contact
+          </button>
+        </nav>
+
+        <div className="space-y-2 border-t border-slate-200 p-4 dark:border-white/10">
+          <button
+            type="button"
+            onClick={onThemeToggle}
+            className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
+          >
+            {isDark ? 'Light mode' : 'Dark mode'}
+          </button>
+          <Button onClick={() => { onNavigate('/contact'); setIsMenuOpen(false); }} className="w-full">
+            Start a Project
+          </Button>
+        </div>
+      </div>
+    </header>
   );
 }
