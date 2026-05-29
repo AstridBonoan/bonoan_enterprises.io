@@ -31,7 +31,8 @@ export function Footer({ onNavigate }: FooterProps) {
               {[
                 ['Home', '/'],
                 ['Services', '/services'],
-                ['Work', '/demos'],
+                ['My Work', '/my-work'],
+                ['Demos', '/demos'],
                 ['Pricing', '/pricing'],
                 ['About', '/about'],
                 ['Contact', '/contact'],

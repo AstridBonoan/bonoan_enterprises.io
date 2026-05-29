@@ -144,3 +144,18 @@ export const FEATURED_PROJECTS = [
     href: 'https://astridbonoan.github.io/AS-Renovations.io/',
   },
 ] as const;
+
+/** Real client projects (live builds, not portfolio demos). */
+export const CLIENT_WORK = [
+  {
+    title: 'Project Cost Estimator',
+    client: 'Tamay Enterprises',
+    industry: 'Construction',
+    description:
+      'Multi-step estimator for repairs and renovations—Stripe deposit payments, Google Calendar scheduling, and a UI refresh aligned to their brand.',
+    image: 'tamay-estimator.png',
+    imageAlt:
+      'Tamay Enterprises project cost estimator showing the project type selection step and multi-step progress bar',
+    href: 'https://estimator.tamayenterprises.com/',
+  },
+] as const;

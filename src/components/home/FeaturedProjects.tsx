@@ -14,9 +14,9 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
     <section className="border-t border-slate-200/80 bg-slate-50/50 py-16 dark:border-white/5 dark:bg-slate-900/30 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Featured work"
-          title="Projects that feel ready for real customers"
-          description="Sample builds across industries—each focused on trust, clarity, and action."
+          eyebrow="Demos"
+          title="Sample websites & tools by industry"
+          description="Concept and portfolio demos you can browse by category—these are templates and showcases, not live client contracts."
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -32,7 +32,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent opacity-80" />
                   <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800 backdrop-blur dark:bg-slate-900/90 dark:text-slate-100">
-                    {project.industry}
+                    Demo · {project.industry}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-5 sm:p-6">
@@ -56,11 +56,8 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
           ))}
         </div>
 
-        <AnimatedSection className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <AnimatedSection className="mt-10 flex justify-center">
           <Button onClick={() => onNavigate('/demos')}>Browse all demos</Button>
-          <Button variant="secondary" onClick={() => onNavigate('/my-work')}>
-            Client work
-          </Button>
         </AnimatedSection>
       </div>
     </section>

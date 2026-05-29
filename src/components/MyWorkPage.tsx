@@ -1,81 +1,90 @@
-interface WorkProject {
-  title: string;
-  client: string;
-  description: string;
-  image: string;
-  imageAlt: string;
-  href: string;
-}
-
-const projects: readonly WorkProject[] = [
-  {
-    title: 'Project Cost Estimator',
-    client: 'Tamay Enterprises',
-    description:
-      'Built for a construction company: multi-step estimates for repairs and renovations. I delivered Stripe deposit payments, Google Calendar scheduling, and a full UI refresh for clarity and brand alignment.',
-    image: 'tamay-estimator.png',
-    imageAlt:
-      'Tamay Enterprises project cost estimator showing the project type selection step and multi-step progress bar',
-    href: 'https://estimator.tamayenterprises.com/',
-  },
-];
+import { CLIENT_WORK } from '../data/site';
+import { AnimatedSection } from './ui/AnimatedSection';
+import { Button } from './ui/Button';
 
 const cardShell =
   'card-hover flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm dark:border-white/10 dark:bg-slate-900/80';
 
-export function MyWorkPage() {
+interface MyWorkPageProps {
+  onNavigate: (path: string) => void;
+}
+
+export function MyWorkPage({ onNavigate }: MyWorkPageProps) {
   const imageBase = `${import.meta.env.BASE_URL}my-work/`;
 
   return (
     <section className="min-h-screen bg-surface px-4 pb-20 pt-28 transition-colors duration-300 dark:bg-surface-dark sm:px-6 sm:pt-32 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400">
-          Client work
+          My Work
         </p>
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
-          Real projects, real results
+          Client projects we&rsquo;ve shipped
         </h1>
-        <p className="mb-6 max-w-3xl text-lg text-slate-600 dark:text-slate-400">
-          Selected client projects—real builds with integrations, workflows, and design decisions
-          behind them.
+        <p className="mb-2 max-w-3xl text-lg text-slate-600 dark:text-slate-400">
+          Real builds for paying clients—live tools, integrations, and design decisions behind each
+          project.
+        </p>
+        <p className="mb-8 max-w-3xl text-sm text-slate-500 dark:text-slate-500">
+          For sample websites and SaaS concepts by industry, see{' '}
+          <button
+            type="button"
+            onClick={() => onNavigate('/demos')}
+            className="font-semibold text-brand-600 underline-offset-2 hover:underline dark:text-brand-400"
+          >
+            Demos
+          </button>
+          .
         </p>
 
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-          {projects.map((project) => (
-            <article key={project.href} className={cardShell}>
-              <div
-                className={
-                  'flex w-full shrink-0 items-center justify-center overflow-hidden bg-slate-100 dark:bg-slate-800 ' +
-                  'aspect-[3/2] p-1.5 sm:aspect-[16/10] sm:p-2.5'
-                }
-              >
-                <img
-                  src={`${imageBase}${project.image}`}
-                  alt={project.imageAlt}
-                  className="max-h-full max-w-full object-contain"
-                />
-              </div>
-              <div className="flex min-h-0 min-w-0 flex-1 flex-col p-2 sm:p-5">
-                <p className="mb-1 line-clamp-1 text-[0.65rem] font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400 sm:text-xs">
-                  {project.client}
-                </p>
-                <h2 className="mb-1 line-clamp-2 text-xs font-semibold leading-snug text-slate-900 dark:text-white sm:mb-1.5 sm:text-lg sm:leading-snug md:text-xl">
-                  {project.title}
-                </h2>
-                <p className="mb-2 line-clamp-3 flex-1 text-[0.65rem] leading-snug text-slate-600 dark:text-slate-400 sm:mb-3 sm:line-clamp-4 sm:text-sm sm:leading-relaxed">
-                  {project.description}
-                </p>
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-auto inline-flex w-full min-w-0 items-center justify-center rounded-md bg-slate-900 px-2 py-1.5 text-[0.7rem] font-semibold text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 sm:w-fit sm:px-4 sm:py-2 sm:text-sm"
-                >
-                  View Project
-                </a>
-              </div>
-            </article>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {CLIENT_WORK.map((project, index) => (
+            <AnimatedSection key={project.href} delay={index * 0.05}>
+              <article className={cardShell}>
+                <div className="relative flex aspect-[16/10] w-full shrink-0 items-center justify-center overflow-hidden bg-slate-100 p-2 dark:bg-slate-800 sm:p-3">
+                  <img
+                    src={`${imageBase}${project.image}`}
+                    alt={project.imageAlt}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                  <span className="absolute left-3 top-3 rounded-full bg-emerald-600/90 px-2.5 py-1 text-[0.65rem] font-semibold text-white sm:text-xs">
+                    Live
+                  </span>
+                </div>
+                <div className="flex min-h-0 flex-1 flex-col p-4 sm:p-5">
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-400">
+                    {project.client}
+                  </p>
+                  <h2 className="mb-1 text-lg font-bold leading-snug text-slate-900 dark:text-white sm:text-xl">
+                    {project.title}
+                  </h2>
+                  <p className="mb-2 text-xs font-medium text-slate-500">{project.industry}</p>
+                  <p className="mb-4 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                    {project.description}
+                  </p>
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-500 sm:w-fit"
+                  >
+                    View live project
+                  </a>
+                </div>
+              </article>
+            </AnimatedSection>
           ))}
+        </div>
+
+        <div className="mt-12 rounded-2xl border border-dashed border-slate-300 bg-slate-50/80 p-8 text-center dark:border-white/15 dark:bg-slate-900/40">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-white">Portfolio demos</h2>
+          <p className="mx-auto mt-2 max-w-lg text-sm text-slate-600 dark:text-slate-400">
+            Sample sites and SaaS tools (restaurants, auto shops, dashboards, and more) live on a
+            separate page from client work.
+          </p>
+          <Button variant="secondary" onClick={() => onNavigate('/demos')} className="mt-5">
+            Browse demos
+          </Button>
         </div>
       </div>
     </section>

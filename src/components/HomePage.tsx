@@ -1,3 +1,4 @@
+import { ClientWorkSection } from './home/ClientWorkSection';
 import { CTASection } from './home/CTASection';
 import { FeaturedProjects } from './home/FeaturedProjects';
 import { HeroSection } from './home/HeroSection';
@@ -15,6 +16,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
     <div className="bg-surface transition-colors duration-300 dark:bg-surface-dark">
       <HeroSection onNavigate={onNavigate} />
       <TrustSection />
+      <ClientWorkSection onNavigate={onNavigate} />
       <ServicesPreview onNavigate={onNavigate} />
       <FeaturedProjects onNavigate={onNavigate} />
       <ProcessSection />

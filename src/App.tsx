@@ -48,8 +48,8 @@ function App() {
         {pathname === '/services' && <Services />}
         {pathname === '/pricing' && <Pricing onSelect={handlePricingSelect} />}
         {pathname === '/contact' && <ContactForm subject={contactSubject} />}
-        {pathname === '/demos' && <DemosPage />}
-        {pathname === '/my-work' && <MyWorkPage />}
+        {pathname === '/demos' && <DemosPage onNavigate={navigateTo} />}
+        {pathname === '/my-work' && <MyWorkPage onNavigate={navigateTo} />}
         {pathname === '/about' && <AboutMePage onNavigate={navigateTo} />}
       </main>
       <Footer onNavigate={navigateTo} />

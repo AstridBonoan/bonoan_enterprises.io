@@ -11,7 +11,8 @@ interface NavbarProps {
 const NAV_LINKS = [
   { path: '/', label: 'Home' },
   { path: '/services', label: 'Services' },
-  { path: '/demos', label: 'Work' },
+  { path: '/my-work', label: 'My Work' },
+  { path: '/demos', label: 'Demos' },
   { path: '/pricing', label: 'Pricing' },
   { path: '/about', label: 'About' },
 ] as const;
@@ -155,20 +156,15 @@ export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarPr
           <button
             type="button"
             onClick={() => {
-              onNavigate('/my-work');
-              setIsMenuOpen(false);
-            }}
-            className="rounded-xl px-4 py-3.5 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
-          >
-            Client work
-          </button>
-          <button
-            type="button"
-            onClick={() => {
               onNavigate('/contact');
               setIsMenuOpen(false);
             }}
-            className="rounded-xl px-4 py-3.5 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
+            className={
+              'rounded-xl px-4 py-3.5 text-left text-sm font-medium transition-colors ' +
+              (pathname === '/contact'
+                ? 'bg-brand-50 text-brand-700 dark:bg-brand-500/10 dark:text-brand-300'
+                : 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5')
+            }
           >
             Contact
           </button>

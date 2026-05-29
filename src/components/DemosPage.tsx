@@ -361,7 +361,11 @@ function countFor(filter: FilterId): number {
   return demos.filter((d) => d.category === filter).length;
 }
 
-export function DemosPage() {
+interface DemosPageProps {
+  onNavigate: (path: string) => void;
+}
+
+export function DemosPage({ onNavigate }: DemosPageProps) {
   const [activeFilter, setActiveFilter] = useState<FilterId>('websites');
   const [industryFilter, setIndustryFilter] = useState<IndustryId>('all');
   const [isCompact, setIsCompact] = useState(() =>
@@ -417,14 +421,25 @@ export function DemosPage() {
     <section className="min-h-screen bg-surface px-4 pb-20 pt-28 transition-colors duration-300 dark:bg-surface-dark sm:px-6 sm:pt-32 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400">
-          Portfolio
+          Demos
         </p>
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
-          Work & demos
+          Sample websites & SaaS demos
         </h1>
-        <p className="mb-4 max-w-3xl text-lg text-slate-600 dark:text-slate-400 sm:mb-6">
-          Browse website and SaaS demos by category—pick a tab below, then narrow by industry if
-          you like.
+        <p className="mb-4 max-w-3xl text-lg text-slate-600 dark:text-slate-400 sm:mb-2">
+          Portfolio samples and concept builds by industry—not live client contracts. Pick a tab
+          below, then narrow by industry if you like.
+        </p>
+        <p className="mb-6 max-w-3xl text-sm text-slate-500 dark:text-slate-500">
+          Looking for shipped client projects?{' '}
+          <button
+            type="button"
+            onClick={() => onNavigate('/my-work')}
+            className="font-semibold text-brand-600 underline-offset-2 hover:underline dark:text-brand-400"
+          >
+            View My Work
+          </button>{' '}
+          (e.g. Tamay Enterprises cost estimator).
         </p>
         <p className="mb-6 text-sm text-slate-500 dark:text-slate-400 sm:hidden">
           On phones, demos load in a two-column grid a few at a time so the page stays scannable.
