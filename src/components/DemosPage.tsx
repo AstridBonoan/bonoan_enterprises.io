@@ -125,7 +125,7 @@ const demos: readonly Demo[] = [
     title: 'Moments Worth Keeping',
     description:
       'Photography portfolio with gallery-first flow—because the right clients decide with their eyes first.',
-    href: '#',
+    href: 'https://astridbonoan.github.io/image_gallery.io/',
     category: 'websites',
     industry: 'photography',
   },
@@ -145,7 +145,7 @@ const demos: readonly Demo[] = [
     title: 'Comfort They Can Feel Year-Round',
     description:
       'HVAC service story with seasonal hooks and low-friction contact—trust is the whole job.',
-    href: 'https://astridbonoan.github.io/AS-Contractor.io/about',
+    href: 'https://astridbonoan.github.io/AS-Contractor.io/',
     category: 'websites',
     industry: 'construction',
   },
@@ -155,7 +155,7 @@ const demos: readonly Demo[] = [
     title: 'Date-Night Energy, Reservation-Ready',
     description:
       'Urban bistro vibe with social-share polish—built for restaurants that live on first impressions.',
-    href: 'https://astridbonoan.github.io/AS-BistroDemo.io',
+    href: 'https://astridbonoan.github.io/AS-BistroDemo.io/',
     category: 'websites',
     industry: 'restaurant',
   },

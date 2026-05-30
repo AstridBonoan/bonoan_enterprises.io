@@ -124,7 +124,7 @@ export const FEATURED_DEMOS = [
     industry: 'Restaurant',
     problem: 'Brand story that drives dine-in and takeout',
     image: 'ember-bowl-co.png',
-    href: 'https://astridbonoan.github.io/ember-bowl-co.io/',
+    href: 'https://astridbonoan.github.io/AS_Casual_Restaurant.io/',
   },
 ] as const;
 
