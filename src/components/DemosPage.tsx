@@ -210,6 +210,16 @@ const demos: readonly Demo[] = [
     industry: 'barbershop',
   },
   {
+    image: 'nicks-barbershop.png',
+    alt: "Nick's Barbershop Ridgewood hero with classic cuts modern style headline, gold book now CTA, and Google reviews",
+    title: "Nick's Barbershop",
+    description:
+      'Ridgewood Queens landing—gold-and-black classic style, 25+ years trust, and book-or-browse paths built for neighborhood regulars.',
+    href: 'https://astridbonoan.github.io/NicksBarbershop.io/',
+    category: 'websites',
+    industry: 'barbershop',
+  },
+  {
     image: 'as-residential.png',
     alt: 'AS Residential custom homes and renovations landing page with quote CTA and project stats',
     title: 'Built to Last Starts at Home',
