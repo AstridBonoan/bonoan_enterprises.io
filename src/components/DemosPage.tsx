@@ -350,6 +350,16 @@ const demos: readonly Demo[] = [
     industry: 'field-services',
   },
   {
+    image: 'contractor-flow.png',
+    alt: 'ContractorFlow lead and estimate landing page with request estimate CTA over construction site hero',
+    title: 'ContractorFlow',
+    description:
+      'Contractor lead tool—homeowner estimate requests, project intake forms, and scheduling built for construction pros.',
+    href: 'https://astridbonoan.github.io/ContractFlow.io/',
+    category: 'saas',
+    industry: 'field-services',
+  },
+  {
     image: 'as-gym-dashboard.png',
     alt: 'AS Gym OS operations dashboard with member, revenue, and retention metrics',
     title: 'Members, Revenue, Retention—Decoded',
