@@ -14,7 +14,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="section-padding relative overflow-hidden pt-28"
+      className="section-padding relative overflow-hidden pt-24 sm:pt-28"
     >
       <HeroGrid />
 
