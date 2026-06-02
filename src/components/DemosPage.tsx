@@ -25,6 +25,7 @@ const WEBSITE_INDUSTRIES = [
 const SAAS_INDUSTRIES = [
   { id: 'all', label: 'All industries' },
   { id: 'restaurant', label: 'Restaurants & hospitality' },
+  { id: 'auto', label: 'Auto shops' },
   { id: 'field-services', label: 'Field services & contractors' },
   { id: 'fitness', label: 'Fitness & gyms' },
   { id: 'retail', label: 'Retail & ecommerce' },
@@ -358,6 +359,16 @@ const demos: readonly Demo[] = [
     href: 'https://astridbonoan.github.io/ContractFlow.io/',
     category: 'saas',
     industry: 'field-services',
+  },
+  {
+    image: 'pit-stop-scheduler.png',
+    alt: 'Pit Stop Scheduler auto shop booking hero with book appointment CTA and service feature cards',
+    title: 'Pit Stop Scheduler',
+    description:
+      'Auto shop scheduling SaaS—online service booking, appointment management, and mobile-first flows for busy drivers.',
+    href: 'https://astridbonoan.github.io/PitStopScheduler.io/',
+    category: 'saas',
+    industry: 'auto',
   },
   {
     image: 'as-gym-dashboard.png',
