@@ -131,6 +131,18 @@ export const FEATURED_DEMOS = [
 /** Live client projects (not portfolio demos). */
 export const CLIENT_WORK = [
   {
+    title: 'Company Website',
+    client: 'Tamay Enterprises',
+    industry: 'Construction',
+    problem: 'One clear online home for construction, real estate, and logistics',
+    description:
+      'Multi-division marketing site for a West Haven, CT company—services, financing, project estimator CTA, and contact flows in one place.',
+    image: 'tamay-enterprises.png',
+    imageAlt:
+      'Tamay Enterprises homepage hero with finished renovation photo, company tagline, and phone CTA',
+    href: 'https://www.tamayenterprises.com/',
+  },
+  {
     title: 'Project Cost Estimator',
     client: 'Tamay Enterprises',
     industry: 'Construction',
