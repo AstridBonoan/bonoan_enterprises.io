@@ -1,11 +1,11 @@
 export const BRAND = {
-  name: 'Bonoan Labs',
+  name: 'Bonoan Enterprises',
   headline: 'Modern Digital Solutions for Growing Businesses',
   tagline:
     'Custom websites, software, and automation designed to help businesses operate smarter and look more professional online.',
-  email: 'bonoanlabs@gmail.com',
-  instagram: 'https://www.instagram.com/bonoan_labs/',
-  instagramHandle: '@bonoan_labs',
+  email: 'bonoanenterprises@gmail.com',
+  instagram: 'https://www.instagram.com/bonoan_enterprises/',
+  instagramHandle: '@bonoan_enterprises',
   calendlyPlaceholder: '#schedule-intro-call',
 } as const;
 

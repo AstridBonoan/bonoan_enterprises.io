@@ -1,6 +1,6 @@
-# A&S WebWorks - Professional Business Website
+# Bonoan Enterprises - Professional Business Website
 
-A modern, professional mobile-first website for A&S WebWorks built with React, Tailwind CSS, and Vite.
+A modern, professional mobile-first website for Bonoan Enterprises built with React, Tailwind CSS, and Vite.
 
 ## 🌟 Features
 
@@ -138,7 +138,7 @@ No custom CSS needed - everything uses Tailwind utility classes!
 
 ## 📄 License
 
-Proprietary to A&S WebWorks.
+Proprietary to Bonoan Enterprises.
 
 ---
 

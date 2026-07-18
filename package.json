@@ -1,9 +1,9 @@
 {
-  "name": "bonoan_labs",
+  "name": "bonoan_enterprises",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://astridbonoan.github.io/bonoan_labs.io/",
+  "homepage": "https://astridbonoan.github.io/bonoan_enterprises.io/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

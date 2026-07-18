@@ -1,6 +1,6 @@
-// Generates theme-aware variants of the Bonoan Labs logo.
+// Generates theme-aware variants of the Bonoan Enterprises logo.
 //
-// Reads `public/logo.png` (the source: bright "B" mark + white "Bonoan Labs"
+// Reads `public/logo.png` (the source: bright "BE" mark + white "Bonoan Enterprises"
 // wordmark on a solid black canvas) and writes two transparent PNGs:
 //
 //   - public/logo-dark.png  -> transparent bg + white wordmark   (use on dark UIs)
@@ -84,7 +84,7 @@ for (let i = 0; i < data.length; i += 4) {
   }
 
   if (sat < GRAYSCALE_SAT && l >= BG_LUMA_FADE_END) {
-    // Bright grayscale pixel -> the white "Bonoan Labs" wordmark.
+    // Bright grayscale pixel -> the white "Bonoan Enterprises" wordmark.
     // Dark variant: keep it white (already correct).
     // Light variant: remap to a dark slate so it reads on white pages,
     // preserving the original alpha for nice anti-aliasing.

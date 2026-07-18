@@ -72,7 +72,7 @@ export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarPr
           <button type="button" onClick={goToHome} className="flex min-w-0 shrink items-center gap-2">
             <img src={logoMarkSrc} alt="" className="h-8 w-auto sm:h-9" />
             <span className="truncate text-base font-bold tracking-tight text-slate-900 dark:text-white sm:text-lg">
-              Bonoan Labs
+              Bonoan Enterprises
             </span>
           </button>
 

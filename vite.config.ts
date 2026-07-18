@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/bonoan_labs.io/',
+  base: '/bonoan_enterprises.io/',
 })
