@@ -37,18 +37,10 @@ A modern, professional mobile-first website for Bonoan Enterprises built with Re
 
 ## ⚙️ Configuration
 
-### Important: Set Up Formspree
+### Formspree
 
-The contact form won't work until you configure Formspree:
-
-1. Go to [formspree.io](https://formspree.io/)
-2. Create a new form and get your **Form ID**
-3. Open `src/components/ContactForm.tsx`
-4. Replace `YOUR_FORM_ID` on line ~26 with your actual ID:
-
-```typescript
-const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-```
+The React contact form uses `@formspree/react` and is configured with form ID
+`mrenqakn` in `src/components/ui/ContactFormFields.tsx`.
 
 ### Customize Content
 

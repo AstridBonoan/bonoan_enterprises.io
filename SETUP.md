@@ -10,26 +10,10 @@ After cloning this project, follow these steps to get your website fully functio
 npm install
 ```
 
-### 2. Configure Formspree (Contact Form)
+### 2. Formspree (Contact Form)
 
-The contact form won't work until Formspree is configured:
-
-1. Visit https://formspree.io
-2. Click "Create" or sign up if needed
-3. Create a new form project
-4. You'll be given a **Form ID** (looks like: `mleafyqy`)
-5. Open `src/components/ContactForm.tsx`
-6. Find line ~26 with the fetch URL
-7. Replace `YOUR_FORM_ID` with your actual Form ID
-
-**Example:**
-```typescript
-// Before:
-const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-
-// After:
-const response = await fetch('https://formspree.io/f/mleafyqy', {
-```
+The React contact form uses `@formspree/react` and is configured with form ID
+`mrenqakn` in `src/components/ui/ContactFormFields.tsx`.
 
 **Test it:**
 - Run `npm run dev`
