@@ -5,7 +5,7 @@ const COST_ESTIMATOR_URL =
   'https://astridbonoan.github.io/bonoan_enterprises_cost_estimator.io/';
 /** Set to true when Stripe Payment Links are live. */
 const SHOW_STRIPE_DEPOSIT_BUTTON = false;
-const ESTIMATOR_AUTO_MINIMIZE_MS = 10_000;
+const ESTIMATOR_AUTO_MINIMIZE_MS = 8_000;
 
 export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) {
   const [estimatorOpen, setEstimatorOpen] = useState(true);
