@@ -1,10 +1,25 @@
+import { useEffect, useState } from 'react';
+
 const STRIPE_DEPOSIT_PAYMENT_LINK = 'https://buy.stripe.com/test_placeholder';
 const COST_ESTIMATOR_URL =
   'https://astridbonoan.github.io/bonoan_enterprises_cost_estimator.io/';
 /** Set to true when Stripe Payment Links are live. */
 const SHOW_STRIPE_DEPOSIT_BUTTON = false;
+const ESTIMATOR_AUTO_MINIMIZE_MS = 10_000;
 
 export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) {
+  const [estimatorOpen, setEstimatorOpen] = useState(true);
+
+  useEffect(() => {
+    if (!estimatorOpen) return;
+
+    const timer = window.setTimeout(() => {
+      setEstimatorOpen(false);
+    }, ESTIMATOR_AUTO_MINIMIZE_MS);
+
+    return () => window.clearTimeout(timer);
+  }, [estimatorOpen]);
+
   const websiteCreation = [
     {
       name: "Basic",
@@ -185,25 +200,48 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
         </div>
       </div>
 
-      <aside
-        aria-label="Project cost estimator"
-        className="fixed bottom-4 left-4 right-4 z-40 rounded-2xl border border-brand-300/70 bg-white/95 p-5 shadow-2xl shadow-brand-950/20 backdrop-blur-md dark:border-brand-500/40 dark:bg-slate-900/95 sm:bottom-6 sm:left-auto sm:right-6 sm:w-80"
-      >
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-400">
-          Need a custom fit?
-        </p>
-        <h3 className="mt-2 text-lg font-bold leading-snug text-slate-900 dark:text-white">
-          Not satisfied with the current packages? See what your unique project could cost.
-        </h3>
-        <a
-          href={COST_ESTIMATOR_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 flex w-full items-center justify-center rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-brand-500 dark:hover:bg-brand-400 dark:focus:ring-offset-slate-900"
+      {estimatorOpen ? (
+        <aside
+          aria-label="Project cost estimator"
+          className="fixed bottom-4 left-4 right-4 z-40 rounded-2xl border border-brand-300/70 bg-white/95 p-5 shadow-2xl shadow-brand-950/20 backdrop-blur-md dark:border-brand-500/40 dark:bg-slate-900/95 sm:bottom-6 sm:left-auto sm:right-6 sm:w-80"
         >
-          Click Here
-        </a>
-      </aside>
+          <div className="flex items-start justify-between gap-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-400">
+              Need a custom fit?
+            </p>
+            <button
+              type="button"
+              onClick={() => setEstimatorOpen(false)}
+              aria-label="Close cost estimator popup"
+              className="rounded-lg p-1 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:hover:bg-white/10 dark:hover:text-white"
+            >
+              <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+              </svg>
+            </button>
+          </div>
+          <h3 className="mt-2 text-lg font-bold leading-snug text-slate-900 dark:text-white">
+            Not satisfied with the current packages? See what your unique project could cost.
+          </h3>
+          <a
+            href={COST_ESTIMATOR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 flex w-full items-center justify-center rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-brand-500 dark:hover:bg-brand-400 dark:focus:ring-offset-slate-900"
+          >
+            Click Here
+          </a>
+        </aside>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setEstimatorOpen(true)}
+          aria-label="Open cost estimator"
+          className="fixed bottom-4 right-4 z-40 rounded-full bg-brand-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-950/30 transition-colors hover:bg-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-brand-500 dark:hover:bg-brand-400 dark:focus:ring-offset-slate-900 sm:bottom-6 sm:right-6"
+        >
+          Cost Estimator
+        </button>
+      )}
     </section>
   );
 }
