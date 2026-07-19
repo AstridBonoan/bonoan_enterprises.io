@@ -4,6 +4,8 @@ export const BRAND = {
   tagline:
     'Custom websites, software, and automation designed to help businesses operate smarter and look more professional online.',
   email: 'bonoanenterprises@gmail.com',
+  phone: '(917) 500-9756',
+  phoneHref: 'tel:+19175009756',
   instagram: 'https://www.instagram.com/bonoan_enterprises/',
   instagramHandle: '@bonoan_enterprises',
   calendlyPlaceholder: '#schedule-intro-call',
