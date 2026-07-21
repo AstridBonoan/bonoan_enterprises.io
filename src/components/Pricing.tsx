@@ -153,7 +153,7 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
             Clear packages for every stage
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400">
-            Transparent pricing for websites and software tools—pick what fits your goals and budget.
+            Flat-rate packages for builds—plus hourly pricing for post-launch edits and support.
           </p>
         </div>
 
@@ -183,7 +183,7 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
         </div>
 
         {/* SaaS Tools */}
-        <div>
+        <div className="mb-14">
           <div className="mb-6">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">
               SaaS Tools
@@ -196,6 +196,60 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
             {saasTools.map((tier, index) => (
               <PricingCard key={index} category="SaaS Tools" tier={tier} />
             ))}
+          </div>
+        </div>
+
+        {/* Edits & Support */}
+        <div>
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">
+              Edits &amp; Support
+            </h3>
+            <p className="text-slate-600 dark:text-slate-400">
+              Project packages cover design and launch. After delivery, updates and support are
+              billed hourly.
+            </p>
+          </div>
+          <div className="mx-auto max-w-2xl rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/70 sm:p-8">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+                  Hourly rate
+                </p>
+                <p className="mt-1 text-4xl font-bold text-slate-900 dark:text-white">
+                  $80<span className="text-xl font-semibold text-slate-500 dark:text-slate-400">/hr</span>
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => onSelect?.('Edits & Support: Hourly')}
+                className="rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-500 dark:bg-brand-500 dark:hover:bg-brand-400"
+              >
+                Keep In Touch
+              </button>
+            </div>
+            <ul className="mt-6 space-y-2.5">
+              {[
+                'Content updates, new sections, and layout tweaks',
+                'Bug fixes and small feature changes',
+                'Billed in 30-minute increments',
+                'Quoted and approved before work begins',
+                'Revision rounds during the project are included in your package',
+              ].map((item) => (
+                <li key={item} className="flex items-start">
+                  <span className="mr-3 mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-600 dark:bg-brand-500">
+                    <svg className="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <span className="text-sm text-slate-700 dark:text-slate-200">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
